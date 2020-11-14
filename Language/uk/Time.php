@@ -1,4 +1,5 @@
 <?php
+
 /**
  * Time language strings.
  *
@@ -28,7 +29,7 @@
  * @package    CodeIgniter
  * @author     CodeIgniter Dev Team
  * @copyright  2019-2020 CodeIgniter Foundation
- * @license    https://opensource.org/licenses/MIT	MIT License
+ * @license    https://opensource.org/licenses/MIT MIT License
  * @link       https://codeigniter.com
  * @since      Version 4.0.0
  * @filesource
@@ -37,22 +38,22 @@
  */
 
 return [
-	'invalidMonth'   => 'Meses devem ser entre 1 e 12. Dado: {0}',
-	'invalidDay'     => 'Dias devem ser entre 1 e 31. Dado: {0}',
-	'invalidOverDay' => 'Dias devem ser entre 1 e {0}. Dado: {1}',
-	'invalidHours'   => 'Horas devem ser entre 0 e 23. Dado: {0}',
-	'invalidMinutes' => 'Minutos devem ser entre 0 e 59. Dado: {0}',
-	'invalidSeconds' => 'Segundos devem ser entre 0 e 59. Dado: {0}',
-	'years'          => '{0, plural, =1{# ano} other{# anos}}',
-	'months'         => '{0, plural, =1{# mês} other{# meses}}',
-	'weeks'          => '{0, plural, =1{# semana} other{# semanas}}',
-	'days'           => '{0, plural, =1{# dia} other{# dias}}',
-	'hours'          => '{0, plural, =1{# hora} other{# horas}}',
-	'minutes'        => '{0, plural, =1{# minuto} other{# minutos}}',
-	'seconds'        => '{0, plural, =1{# segundo} other{# segundos}}',
-	'ago'            => '{0} atrás',
-	'inFuture'       => 'em {0}',
-	'yesterday'      => 'Ontem',
-	'tomorrow'       => 'Amanhã',
-	'now'            => 'Agora mesmo',
+   'invalidMonth'   => 'Номер місяця може бути між 1 та 12. Вказано: {0}',
+   'invalidDay'     => 'Номер дня може бути між 1 та 31. Вказано: {0}',
+   'invalidOverDay' => 'Дні повинні бути від 1 до {0}. Вказано: {1}.',
+   'invalidHours'   => 'Години можуть бути між 0 та 23. Вказано: {0}.',
+   'invalidMinutes' => 'Хвилини можуть бути між 0 та 59. Вказано: {0}.',
+   'invalidSeconds' => 'Секунди можуть бути між 0 та 59. Вказано: {0}.',
+   'years'          => '{0, plural, =1{# рік} other{# років}}',
+   'months'         => '{0, plural, =1{# місяць} other{# місяців}}',
+   'weeks'          => '{0, plural, =1{# тиждень} other{# тижнів}}',
+   'days'           => '{0, plural, =1{# день} other{# днів}}',
+   'hours'          => '{0, plural, =1{# година} other{# годин}}',
+   'minutes'        => '{0, plural, =1{# хвилина} other{# хвилин}}',
+   'seconds'        => '{0, plural, =1{# секунда} other{# секунд}}',
+   'ago'            => '{0} тому',
+   'inFuture'       => 'в {0}',
+   'yesterday'      => 'Вчора',
+   'tomorrow'       => 'Завтра',
+   'now'            => 'Прямо зараз',
 ];
