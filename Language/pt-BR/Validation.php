@@ -1,49 +1,22 @@
 <?php
 
 /**
- * Validation language strings.
+ * This file is part of the CodeIgniter 4 framework.
  *
- * This content is released under the MIT License (MIT)
+ * (c) CodeIgniter Foundation <admin@codeigniter.com>
  *
- * Copyright (c) 2014-2019 British Columbia Institute of Technology
- * Copyright (c) 2019-2020 CodeIgniter Foundation
- *
- * Permission is hereby granted, free of charge, to any person obtaining a copy
- * of this software and associated documentation files (the "Software"), to deal
- * in the Software without restriction, including without limitation the rights
- * to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
- * copies of the Software, and to permit persons to whom the Software is
- * furnished to do so, subject to the following conditions:
- *
- * The above copyright notice and this permission notice shall be included in
- * all copies or substantial portions of the Software.
- *
- * THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
- * IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
- * FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
- * AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
- * LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
- * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
- * THE SOFTWARE.
- *
- * @package    CodeIgniter
- * @author     CodeIgniter Dev Team
- * @copyright  2019-2020 CodeIgniter Foundation
- * @license    https://opensource.org/licenses/MIT	MIT License
- * @link       https://codeigniter.com
- * @since      Version 4.0.0
- * @filesource
- *
- * @codeCoverageIgnore
+ * For the full copyright and license information, please view the LICENSE
+ * file that was distributed with this source code.
  */
 
+// Validation language settings
 return [
 	// Core Messages
-	'noRuleSets'            => 'Nenhum conjunto de regras especificado na configuração de Validação.',
-	'ruleNotFound'          => '{0} não é uma regra válida.',
-	'groupNotFound'         => '{0} não é um grupo de regras de validação.',
-	'groupNotArray'         => 'O grupo de regras {0} deve ser um array.',
-	'invalidTemplate'       => '{0} não é um template de Validation válido.',
+	'noRuleSets'      => 'Nenhum conjunto de regras especificado na configuração de Validação.',
+	'ruleNotFound'    => '{0} não é uma regra válida.',
+	'groupNotFound'   => '{0} não é um grupo de regras de validação.',
+	'groupNotArray'   => 'O grupo de regras {0} deve ser um array.',
+	'invalidTemplate' => '{0} não é um template de Validation válido.',
 
 	// Rule Messages
 	'alpha'                 => 'O campo {field} pode conter apenas caracteres alfabéticos.',
@@ -87,13 +60,13 @@ return [
 	'valid_date'            => 'O campo {field} deve conter uma data válida.',
 
 	// Credit Cards
-	'valid_cc_num'          => '{field} não parece ser um número de cartão de crédito válido.',
+	'valid_cc_num' => '{field} não parece ser um número de cartão de crédito válido.',
 
 	// Files
-	'uploaded'              => '{field} não é um arquivo de upload válido.',
-	'max_size'              => '{field} é um arquivo muito grande.',
-	'is_image'              => '{field} não é um arquivo de imagem válida do upload.',
-	'mime_in'               => '{field} não tem um tipo mime válido.',
-	'ext_in'                => '{field} não tem uma extensão de arquivo válida.',
-	'max_dims'              => '{field} não é uma imagem, ou ela é muito larga ou muito grande.',
+	'uploaded' => '{field} não é um arquivo de upload válido.',
+	'max_size' => '{field} é um arquivo muito grande.',
+	'is_image' => '{field} não é um arquivo de imagem válida do upload.',
+	'mime_in'  => '{field} não tem um tipo mime válido.',
+	'ext_in'   => '{field} não tem uma extensão de arquivo válida.',
+	'max_dims' => '{field} não é uma imagem, ou ela é muito larga ou muito grande.',
 ];
