@@ -5,8 +5,8 @@
  *
  * (c) CodeIgniter Foundation <admin@codeigniter.com>
  *
- * For the full copyright and license information, please view the LICENSE
- * file that was distributed with this source code.
+ * For the full copyright and license information, please view
+ * the LICENSE file that was distributed with this source code.
  */
 
 // Validation language settings
@@ -44,12 +44,11 @@ return [
 	'max_length'            => 'Trường {field} không thể vượt quá {param} ký tự.',
 	'min_length'            => 'Trường {field} phải có ít nhất {param} ký tự.',
 	'not_equals'            => 'Trường {field} không thể là: {param}.',
-	'numeric'               => 'Trường {field} chỉ được chứa số.',
+	'numeric'               => 'Trường {field} chỉ được chứa số.',
 	'regex_match'           => 'Trường {field} không đúng định dạng',
 	'required'              => 'Trường {field} bắt buộc.',
 	'required_with'         => 'Trường {field} bắt buộc khi {param} tồn tại.',
 	'required_without'      => 'Trường {field} bắt buộc khi {param} không tồn tại.',
-	'string'                => 'The {field} field must be a valid string.',
 	'timezone'              => 'Trường {field} phải là múi giờ hợp lệ. ',
 	'valid_base64'          => 'Trường {field} phải là một chuỗi base64 hợp lệ.',
 	'valid_email'           => 'Trường {field} phải là địa chỉ email hợp lệ.',

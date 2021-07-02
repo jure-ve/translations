@@ -5,12 +5,13 @@
  *
  * (c) CodeIgniter Foundation <admin@codeigniter.com>
  *
- * For the full copyright and license information, please view the LICENSE
- * file that was distributed with this source code.
+ * For the full copyright and license information, please view
+ * the LICENSE file that was distributed with this source code.
  */
 
-namespace CodeIgniter\Language;
+namespace Translations\Tests;
 
+use CodeIgniter\CLI\CLI;
 use PHPUnit\Framework\TestCase;
 
 /**
@@ -34,9 +35,6 @@ abstract class AbstractTranslationTestCase extends TestCase
 	 * Collection of all locale codes mapped from the
 	 * individual locale translation test case.
 	 *
-	 * **NOTE: Do not include `AllLocalesTranslationTest` in
-	 * this collection.**
-	 *
 	 * @var array<string, string>
 	 */
 	public static $locales = [
@@ -59,6 +57,7 @@ abstract class AbstractTranslationTestCase extends TestCase
 		PortugueseTranslationTest::class         => 'pt',
 		BrazilianTranslationTest::class          => 'pt-BR',
 		RussianTranslationTest::class            => 'ru',
+		SinhalaTranslationTest::class            => 'si',
 		SlovakTranslationTest::class             => 'sk',
 		SwedishTranslationTest::class            => 'sv-SE',
 		TurkishTranslationTest::class            => 'tr',
@@ -67,6 +66,18 @@ abstract class AbstractTranslationTestCase extends TestCase
 		SimpleChineseTranslationTest::class      => 'zh-CN',
 		TraditionalChineseTranslationTest::class => 'zh-TW',
 	];
+
+	/**
+	 * A list of language keys that do not differ from
+	 * the untranslated string even if translated correctly.
+	 *
+	 * This array will be filled in each locale's test
+	 * class and the contained values will be skipped in
+	 * testAllIncludedLanguageKeysAreTranslated.
+	 *
+	 * @var array<string, string>
+	 */
+	protected $excludedLocaleKeyTranslations = [];
 
 	//-------------------------------------------------------------------------
 	// TESTS
@@ -84,30 +95,15 @@ abstract class AbstractTranslationTestCase extends TestCase
 	 */
 	final public function testAllConfiguredLanguageFilesAreTranslated(string $locale): void
 	{
-		// These localisation variants are usually independent on their own and have no single
-		// parent locale to compare with so they are treated as if a parent locale
-		static $excludedLocales = [
-			'pt-BR',
-			'sv-SE',
-			'sv-FI',
-			'zh-CN',
-			'zh-TW',
-		];
-
-		$filesNotTranslated = [];
-
-		if (strlen($locale) === 2 || (strlen($locale) > 2 && in_array($locale, $excludedLocales, true)))
-		{
-			$filesNotTranslated = array_diff(
-				$this->expectedSets(),
-				$this->foundSets($locale)
-			);
-		}
+		$filesNotTranslated = array_diff(
+			$this->expectedSets(),
+			$this->foundSets($locale)
+		);
 
 		sort($filesNotTranslated);
 		$count = count($filesNotTranslated);
 
-		$this->assertEmpty($filesNotTranslated, sprintf(
+		self::assertEmpty($filesNotTranslated, sprintf(
 			'Failed asserting that language %s "%s" in the main repository %s translated in "%s" locale.',
 			$count > 1 ? 'files' : 'file',
 			implode('", "', $filesNotTranslated),
@@ -136,7 +132,7 @@ abstract class AbstractTranslationTestCase extends TestCase
 		sort($filesNotConfigured);
 		$count = count($filesNotConfigured);
 
-		$this->assertEmpty($filesNotConfigured, sprintf(
+		self::assertEmpty($filesNotConfigured, sprintf(
 			'Failed asserting that translated language %s "%s" in "%s" locale %s configured in the main repository.',
 			$count > 1 ? 'files' : 'file',
 			implode('", "', $filesNotConfigured),
@@ -157,10 +153,9 @@ abstract class AbstractTranslationTestCase extends TestCase
 	 */
 	final public function testAllConfiguredLanguageKeysAreIncluded(string $locale): void
 	{
-		$availableSets   = array_intersect($this->expectedSets(), $this->foundSets($locale));
 		$keysNotIncluded = [];
 
-		foreach ($availableSets as $file)
+		foreach ($this->foundSets($locale) as $file)
 		{
 			$missing = array_diff_key(
 				$this->loadFile($file),
@@ -176,7 +171,7 @@ abstract class AbstractTranslationTestCase extends TestCase
 		sort($keysNotIncluded);
 		$count = count($keysNotIncluded);
 
-		$this->assertEmpty($keysNotIncluded, sprintf(
+		self::assertEmpty($keysNotIncluded, sprintf(
 			'Failed asserting that the language %s "%s" in the main repository %s included for translation in "%s" locale.',
 			$count > 1 ? 'keys' : 'key',
 			implode('", "', $keysNotIncluded),
@@ -197,10 +192,9 @@ abstract class AbstractTranslationTestCase extends TestCase
 	 */
 	final public function testAllIncludedLanguageKeysAreConfigured(string $locale): void
 	{
-		$availableSets     = array_intersect($this->expectedSets(), $this->foundSets($locale));
 		$keysNotConfigured = [];
 
-		foreach ($availableSets as $file)
+		foreach ($this->foundSets($locale) as $file)
 		{
 			$extra = array_diff_key(
 				$this->loadFile($file, $locale),
@@ -216,7 +210,7 @@ abstract class AbstractTranslationTestCase extends TestCase
 		sort($keysNotConfigured);
 		$count = count($keysNotConfigured);
 
-		$this->assertEmpty($keysNotConfigured, sprintf(
+		self::assertEmpty($keysNotConfigured, sprintf(
 			'Failed asserting that the translated language %s "%s" in "%s" locale %s configured in the main repository.',
 			$count > 1 ? 'keys' : 'key',
 			implode('", "', $keysNotConfigured),
@@ -225,64 +219,146 @@ abstract class AbstractTranslationTestCase extends TestCase
 		));
 	}
 
-	final public function localesProvider(): iterable
+	/**
+	 * This tests that all included language keys in a language file for the current
+	 * locale that have corresponding keys in the main CI4 repository are really translated
+	 * and do not only copy the main repository's value.
+	 *
+	 * @dataProvider localesProvider
+	 *
+	 * @param string $locale
+	 *
+	 * @return void
+	 */
+	final public function testAllIncludedLanguageKeysAreTranslated(string $locale): void
 	{
-		helper('filesystem');
-		$locale = self::$locales[static::class] ?? $this->translationKeys();
+		// These keys are usually not translated because they contain either
+		// universal abbreviations or simply combine parameters with signs.
+		static $excludedKeyTranslations = [
+			'HTTP.curlError',
+			'Number.terabyteAbbr',
+			'Number.gigabyteAbbr',
+			'Number.megabyteAbbr',
+			'Number.kilobyteAbbr',
+			'Number.bytes',
+		];
 
-		if (! is_array($locale))
+		$excludedKeys  = array_unique(array_merge($excludedKeyTranslations, $this->excludedLocaleKeyTranslations));
+		$availableSets = array_intersect($this->expectedSets(), $this->foundSets($locale));
+
+		$keysNotTranslated = [];
+
+		foreach ($availableSets as $file)
 		{
-			$locale = [$locale => [$locale]];
+			$originalStrings = $this->loadFile($file);
+
+			foreach ($this->loadFile($file, $locale) as $key => $translation)
+			{
+				$keyName = substr($file, 0, -4) . '.' . $key;
+
+				if (in_array($keyName, $excludedKeys, true))
+				{
+					continue;
+				}
+
+				if ((array_key_exists($key, $originalStrings) && $originalStrings[$key] === $translation) || $translation === '')
+				{
+					$keysNotTranslated[] = $keyName;
+				}
+			}
 		}
 
-		return $locale;
-	}
+		sort($keysNotTranslated);
+		$count = count($keysNotTranslated);
 
-	final public function testAllLocalesHaveCorrespondingTestCaseInArray(): void
-	{
-		$untestedLocales = array_diff(
-			array_keys($this->translationKeys()),
-			array_values(self::$locales)
-		);
-
-		sort($untestedLocales);
-		$count = count($untestedLocales);
-
-		$this->assertEmpty($untestedLocales, sprintf(
-			'Failed asserting that %s "%s" %s corresponding test %s in %s::$locales array.',
-			$count > 1 ? 'locales' : 'locale',
-			implode('", "', $untestedLocales),
-			$count > 1 ? 'have' : 'has a',
-			$count > 1 ? 'cases' : 'case',
-			self::class
+		self::assertEmpty($keysNotTranslated, sprintf(
+			'Failed asserting that the translated language %s "%s" in "%s" locale %s from the original keys in the main repository.',
+			$count > 1 ? 'keys' : 'key',
+			implode('", "', $keysNotTranslated),
+			$locale,
+			$count > 1 ? 'differ' : 'differs'
 		));
 	}
 
 	/**
-	 * @dataProvider localeTestCaseProvider
+	 * This tests that the order of all language keys defined by a translation language file
+	 * resembles the order in the main CI4 repository.
 	 *
-	 * @param string $class
+	 * @dataProvider localesProvider
+	 *
+	 * @param string $locale
 	 *
 	 * @return void
 	 */
-	final public function testAllLocalesHaveCorrespondingTestCaseFiles(string $class): void
+	final public function testAllConfiguredLanguageKeysAreInOrder(string $locale): void
 	{
-		$this->assertTrue(class_exists($class, false), sprintf(
-			'Failed asserting that test class "%s" is existing.',
-			$class
+		$diffs = [];
+
+		foreach ($this->foundSets($locale) as $file)
+		{
+			$original   = $this->loadFile($file);
+			$translated = $this->loadFile($file, $locale);
+
+			// No need to check the order if the number is already different
+			// This is handled by the other tests
+			if (count($original) === count($translated))
+			{
+				$trans = array_keys($translated);
+
+				foreach (array_keys($original) as $index => $expectedKey)
+				{
+					$actualKey = $trans[$index] ?? null;
+
+					if ($actualKey !== null && $expectedKey !== $actualKey)
+					{
+						$diffs[] = sprintf(
+							"\n%s:\n%s\n%s",
+							$file,
+							CLI::color("-'{$expectedKey}' => '{$original[$expectedKey]}';", 'red'),
+							CLI::color("+'{$actualKey}' => '{$translated[$actualKey]}';", 'green')
+						);
+						break;
+					}
+				}
+			}
+		}
+
+		self::assertEmpty($diffs, sprintf(
+			"Failed asserting that the translated language keys in \"%s\" locale are ordered correctly.\n%s\n%s",
+			$locale,
+			CLI::color('--- Original', 'red') . "\n" . CLI::color('+++ Translated', 'green'),
+			implode("\n", $diffs)
 		));
 	}
 
-	final public function localeTestCaseProvider(): iterable
+	/** @return string[][] */
+	final public function localesProvider(): iterable
 	{
-		$set = [];
+		$locale = self::$locales[static::class] ?? null;
 
-		foreach (self::$locales as $class => $locale)
+		if (null === $locale)
 		{
-			$set[$locale] = [$class];
+			self::fail('The locale code should be defined in the $locales property.');
 		}
 
-		return $set;
+		return [$locale => [$locale]];
+	}
+
+	/**
+	 * @dataProvider localesProvider
+	 *
+	 * @param string $locale
+	 *
+	 * @return void
+	 */
+	final public function testLocaleHasCorrespondingTestCaseFile(string $locale): void
+	{
+		$class = array_flip(self::$locales)[$locale];
+
+		self::assertTrue(class_exists($class, false), sprintf(
+			'Failed asserting that test class "%s" is existing.',
+			$class
+		));
 	}
 
 	//-------------------------------------------------------------------------
@@ -296,6 +372,8 @@ abstract class AbstractTranslationTestCase extends TestCase
 	 */
 	final public function translationKeys(): array
 	{
+		helper('filesystem');
+
 		$sets = [];
 		$dirs = directory_map(getcwd() . '/Language', 1);
 
@@ -308,6 +386,7 @@ abstract class AbstractTranslationTestCase extends TestCase
 		return $sets;
 	}
 
+	/** @return array<string, string> */
 	final public function expectedSets(): array
 	{
 		static $expected;
@@ -320,12 +399,25 @@ abstract class AbstractTranslationTestCase extends TestCase
 		return $expected;
 	}
 
+	/**
+	 * @param string $locale
+	 *
+	 * @return array<string, string>
+	 */
 	final public function foundSets(string $locale): array
 	{
 		return $this->translationSets($locale);
 	}
 
-	final public function loadFile(string $file, ?string $locale = null): array
+	/**
+	 * Loads the language keys and translation equivalents.
+	 *
+	 * @param string $file
+	 * @param string $locale
+	 *
+	 * @return array<string, string>
+	 */
+	final public function loadFile(string $file, string $locale = null): array
 	{
 		$folder = $locale
 			? getcwd() . "/Language/{$locale}/"
@@ -341,10 +433,12 @@ abstract class AbstractTranslationTestCase extends TestCase
 	 *
 	 * @param string|null $locale
 	 *
-	 * @return array
+	 * @return array<string, string>
 	 */
-	private function translationSets(?string $locale = null): array
+	private function translationSets(string $locale = null): array
 	{
+		helper('filesystem');
+
 		$location = $locale
 			? getcwd() . "/Language/{$locale}/"
 			: getcwd() . self::MAIN_LANGUAGE_REPO;

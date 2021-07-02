@@ -5,16 +5,17 @@
  *
  * (c) CodeIgniter Foundation <admin@codeigniter.com>
  *
- * For the full copyright and license information, please view the LICENSE
- * file that was distributed with this source code.
+ * For the full copyright and license information, please view
+ * the LICENSE file that was distributed with this source code.
  */
 
 // Database language settings
 return [
 	'invalidEvent'                     => '{0} は有効なモデルイベントコールバックではありません。', //{0} is not a valid Model Event callback.
 	'invalidArgument'                  => '有効な {0} を与えてください。', //You must provide a valid {0}.
-	'invalidAllowedFields'             => 'モデル「{0}」には許可フィールドを指定する必要があります。: ', //Allowed fields must be specified for model: {0}
+	'invalidAllowedFields'             => 'モデル「{0}」には許可フィールドを指定する必要があります。', //Allowed fields must be specified for model: {0}
 	'emptyDataset'                     => '{0} へのデータはありません。', //There is no data to {0}.
+	'emptyPrimaryKey'                  => '{0} 作成時にプライマリキーが定義されていません。', //There is no primary key defined when trying to make {0}.
 	'failGetFieldData'                 => 'データベースからフィールド・データの取得に失敗しました。', //Failed to get field data from database.
 	'failGetIndexData'                 => 'データベースからインデックス・データの取得に失敗しました。', //Failed to get index data from database.
 	'failGetForeignKeyData'            => 'データベースからの外部キー・データの取得に失敗しました。', //Failed to get foreign key data from database.

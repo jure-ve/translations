@@ -5,12 +5,13 @@
  *
  * (c) CodeIgniter Foundation <admin@codeigniter.com>
  *
- * For the full copyright and license information, please view the LICENSE
- * file that was distributed with this source code.
+ * For the full copyright and license information, please view
+ * the LICENSE file that was distributed with this source code.
  */
 
 // Time language settings
 return [
+	'invalidFormat'  => '"{0}" tidak valid format datetime',
 	'invalidMonth'   => 'Bulan harus antara 1 dan 12. Diberikan: {0}',
 	'invalidDay'     => 'Hari harus antara 1 dan 31. Diberikan: {0}',
 	'invalidOverDay' => 'Hari harus antara 1 dan {0}. Diberikan: {1}',

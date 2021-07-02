@@ -5,8 +5,8 @@
  *
  * (c) CodeIgniter Foundation <admin@codeigniter.com>
  *
- * For the full copyright and license information, please view the LICENSE
- * file that was distributed with this source code.
+ * For the full copyright and license information, please view
+ * the LICENSE file that was distributed with this source code.
  */
 
 // Pager language settings
@@ -18,6 +18,6 @@ return [
 	'last'                   => 'Letzte',
 	'older'                  => 'Älter',
 	'newer'                  => 'Neuer',
-	'invalidTemplate'        => '{0} ist kein gültiges Template.',
-	'invalidPaginationGroup' => '{0} ist keine gültige Seiten-Gruppe.',
+	'invalidTemplate'        => '{0} ist kein gültiges Pager Template.',
+	'invalidPaginationGroup' => '{0} ist keine gültige Nummerierungs-Gruppe.',
 ];

@@ -5,8 +5,8 @@
  *
  * (c) CodeIgniter Foundation <admin@codeigniter.com>
  *
- * For the full copyright and license information, please view the LICENSE
- * file that was distributed with this source code.
+ * For the full copyright and license information, please view
+ * the LICENSE file that was distributed with this source code.
  */
 
 // Migration language settings
@@ -30,11 +30,7 @@ return [
 	'migHelpSeed'     => "\tvykdo sėjiką, pavadintą [name].",
 	'migCreate'       => "\tSukuria naują migraciją vardu [name]",
 	'nameMigration'   => 'Įvardinkite migracijos failą',
-	'badCreateName'   => 'Turite nurodyti migracijos failo vardą.',
-	'writeError'      => 'Klaida bandant sukurti failą.',
 	'migNumberError'  => 'Migracijos numerį turi sudaryti trys skaitmenys, o jų sekoje neturi būti jokių tarpų.',
-	'rollBackConfirm' => 'Are you sure you want to rollback?',
-	'refreshConfirm'  => 'Are you sure you want to refresh?',
 
 	'latest'            => 'Vykdomos visos migracijos...',
 	'generalFault'      => 'Migracijos nepavyko!',

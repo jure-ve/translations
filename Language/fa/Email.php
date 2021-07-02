@@ -5,8 +5,8 @@
  *
  * (c) CodeIgniter Foundation <admin@codeigniter.com>
  *
- * For the full copyright and license information, please view the LICENSE
- * file that was distributed with this source code.
+ * For the full copyright and license information, please view
+ * the LICENSE file that was distributed with this source code.
  */
 
 // Email language settings
@@ -29,5 +29,4 @@ return [
 	'SMTPAuthUsername'     => 'مشکل در احراز هویت نام کاربری. خطا: {0}',
 	'SMTPAuthPassword'     => 'مشکل در احراز هویت رمز. خطا: {0}',
 	'SMTPDataFailure'      => 'امکان ارسال داده وجود ندارد: {0}',
-	'exitStatus'           => 'Exit status code: {0}',
 ];

@@ -5,8 +5,8 @@
  *
  * (c) CodeIgniter Foundation <admin@codeigniter.com>
  *
- * For the full copyright and license information, please view the LICENSE
- * file that was distributed with this source code.
+ * For the full copyright and license information, please view
+ * the LICENSE file that was distributed with this source code.
  */
 
 // HTTP language settings
@@ -18,13 +18,13 @@ return [
 	'curlError'       => '{0} : {1}',
 
 	// IncomingRequest
-	'invalidNegotiationType' => '{0} nie je platný typ vyjednávania. Musí to byť: médium, znaková sada, kódovanie alebo jazyk.',
+	'invalidNegotiationType' => '{0} nie je platný typ vyjednávania. Musí to byť: media, charset, encoding, language.',
 
 	// Message
 	'invalidHTTPProtocol' => 'Neplatná verzia protokolu HTTP. Musí to byť jedno z: {0}',
 
 	// Negotiate
-	'emptySupportedNegotiations' => 'Musíte poskytnúť pole podporovaných hodnôt pre všetky negotiations.',
+	'emptySupportedNegotiations' => 'Musíte poskytnúť pole podporovaných hodnôt pre všetky Negotiations.',
 
 	// RedirectResponse
 	'invalidRoute' => '{0} trasu nemožno nájsť pri spätnom smerovaní.',
@@ -32,7 +32,7 @@ return [
 	// DownloadResponse
 	'cannotSetBinary'        => 'Pri nastavovaní filepath nie je možné nastaviť binary.',
 	'cannotSetFilepath'      => 'Pri nastavovaní binary nie je možné nastaviť filepath: {0}',
-	'notFoundDownloadSource' => 'Not found download body source.',
+	'notFoundDownloadSource' => 'Nenašiel sa zdroj tela sťahovania.',
 	'cannotSetCache'         => 'Nepodporuje ukladanie do vyrovnávacej pamäte pre sťahovanie.',
 	'cannotSetStatusCode'    => 'Nepodporuje stavový kód chnage na stiahnutie. kód: {0}, dôvod: {1}',
 
@@ -44,7 +44,7 @@ return [
 	// URI
 	'cannotParseURI'       => 'Nemožno analyzovať URI: {0}',
 	'segmentOutOfRange'    => 'Segment URI žiadosti je mimo rozsahu: {0}',
-	'invalidPort'          => 'Porty musia byť medzi 0 a 65535. Zadaný: {0}',
+	'invalidPort'          => 'Porty musia byť medzi 0 a 65535. Zadané: {0}',
 	'malformedQueryString' => 'Reťazce dopytov nemusia obsahovať fragmenty URI.',
 
 	// Page Not Found
@@ -61,7 +61,7 @@ return [
 	'invalidFile'  => 'Pôvodný súbor nie je platný.',
 	'moveFailed'   => 'Nepodarilo sa presunúť súbor z {0} do {1} ({2})',
 
-	'uploadErrOk'        => 'Súbor bol úspešne odovzdaný.',
+	'uploadErrOk'        => 'Súbor bol úspešne nahratý.',
 	'uploadErrIniSize'   => 'Súbor "%s" prekračuje vašu direktívu upload_max_filesize ini.',
 	'uploadErrFormSize'  => 'Súbor "%s" prekračuje limit pre upload stanovený vo vašom formulári.',
 	'uploadErrPartial'   => 'Súbor "%s" bol nahraný iba čiastočne.',
@@ -70,4 +70,7 @@ return [
 	'uploadErrNoTmpDir'  => 'Súbor sa nepodarilo nahrať: chýba dočasný adresár.',
 	'uploadErrExtension' => 'Nahrávanie súborov bolo zastavené rozšírením PHP.',
 	'uploadErrUnknown'   => 'Súbor "%s" nebol nahraný kvôli neznámej chybe.',
+
+	// SameSite setting
+	'invalidSameSiteSetting' => 'SameSite nastavenie musí byť None, Lax, Strict, alebo prázdny reťazec. Zadané: {0}',
 ];

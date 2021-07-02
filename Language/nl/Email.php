@@ -5,8 +5,8 @@
  *
  * (c) CodeIgniter Foundation <admin@codeigniter.com>
  *
- * For the full copyright and license information, please view the LICENSE
- * file that was distributed with this source code.
+ * For the full copyright and license information, please view
+ * the LICENSE file that was distributed with this source code.
  */
 
 // Email language settings
@@ -29,5 +29,4 @@ return [
 	'SMTPAuthUsername'     => 'Authenticatie gebruikersnaam gefaald. Fout: {0}',
 	'SMTPAuthPassword'     => 'Authenticatie wachtwoord gefaald. Fout: {0}',
 	'SMTPDataFailure'      => 'Kon geen data versturen: {0}',
-	'exitStatus'           => 'Exit status code: {0}',
 ];

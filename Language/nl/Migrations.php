@@ -5,8 +5,8 @@
  *
  * (c) CodeIgniter Foundation <admin@codeigniter.com>
  *
- * For the full copyright and license information, please view the LICENSE
- * file that was distributed with this source code.
+ * For the full copyright and license information, please view
+ * the LICENSE file that was distributed with this source code.
  */
 
 // Migration language settings
@@ -30,11 +30,7 @@ return [
 	'migHelpSeed'     => "\tVoert seeder uit met naam [name].",
 	'migCreate'       => "\tMaakt een nieuwe migratie aan met de naam [name]",
 	'nameMigration'   => 'Geeft het migratiebestand een naam',
-	'badCreateName'   => 'Gelieve een migratiebestandsnaam op te geven.',
-	'writeError'      => 'Fout bij het aanmaken van het bestand.',
 	'migNumberError'  => 'Migratie cijfer moet 3 cijfers bevatten, en er mag geen gat zijn in de sequentie.',
-	'rollBackConfirm' => 'Are you sure you want to rollback?',
-	'refreshConfirm'  => 'Are you sure you want to refresh?',
 
 	'latest'            => 'Al de migraties worden uitgevoerd...',
 	'generalFault'      => 'Migratie gefaald!',
@@ -46,7 +42,6 @@ return [
 	'on'                => 'Gemigreerd op: ',
 	'migSeeder'         => 'Seeder naam',
 	'migMissingSeeder'  => 'U moet een seeder naam opgeven.',
-	'removed'           => 'Rolling back: ',
 	'added'             => 'Uitvoeren: ',
 
 	'version'  => 'Versie',

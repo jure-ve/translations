@@ -5,12 +5,13 @@
  *
  * (c) CodeIgniter Foundation <admin@codeigniter.com>
  *
- * For the full copyright and license information, please view the LICENSE
- * file that was distributed with this source code.
+ * For the full copyright and license information, please view
+ * the LICENSE file that was distributed with this source code.
  */
 
 // Time language settings
 return [
+	'invalidFormat'  => '"{0}" is kein gültiges Format für `datetime`.',
 	'invalidMonth'   => 'Monat muss zwischen 1 und 12 sein. Eingabe: {0}',
 	'invalidDay'     => 'Tag muss zwischen 1 und 31 sein. Eingabe: {0}',
 	'invalidOverDay' => 'Tag muss zwischen 1 und {0} sein. Eingabe: {1}',
@@ -24,7 +25,7 @@ return [
 	'hours'          => '{0, plural, =1{# Stunde} other{# Stunden}}',
 	'minutes'        => '{0, plural, =1{# Minute} other{# Minuten}}',
 	'seconds'        => '{0, plural, =1{# Sekunde} other{# Sekunden}}',
-	'ago'            => '{0} her',
+	'ago'            => 'vor {0}',
 	'inFuture'       => 'in {0}',
 	'yesterday'      => 'Gestern',
 	'tomorrow'       => 'Morgen',

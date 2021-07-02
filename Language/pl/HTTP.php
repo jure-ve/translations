@@ -5,8 +5,8 @@
  *
  * (c) CodeIgniter Foundation <admin@codeigniter.com>
  *
- * For the full copyright and license information, please view the LICENSE
- * file that was distributed with this source code.
+ * For the full copyright and license information, please view
+ * the LICENSE file that was distributed with this source code.
  */
 
 // HTTP language settings
@@ -28,13 +28,6 @@ return [
 
 	// RedirectResponse
 	'invalidRoute' => '{0} nie jest prawidłową trasą.',
-
-	// DownloadResponse
-	'cannotSetBinary'        => 'When setting filepath can not set binary.',
-	'cannotSetFilepath'      => 'When setting binary can not set filepath: {0}',
-	'notFoundDownloadSource' => 'Not found download body source.',
-	'cannotSetCache'         => 'It does not supported caching for downloading.',
-	'cannotSetStatusCode'    => 'It does not supported chnage status code for downloading. code: {0}, reason: {1}',
 
 	// Response
 	'missingResponseStatus' => 'W odpowiedzi HTTP brakuje kodu statusu',
@@ -68,5 +61,5 @@ return [
 	'uploadErrCantWrite' => 'Plik "%s" nie może być zapisany na dysku.',
 	'uploadErrNoTmpDir'  => 'Plik nie może zostać wysłany. Brak katalogu tymczasowego.',
 	'uploadErrExtension' => 'Wysyłka pliku została zablokowana przez PHP.',
-	'uploadErrUnknown'   => 'Plik "%s" nie został wysłany z nieznanego powodu.'
+	'uploadErrUnknown'   => 'Plik "%s" nie został wysłany z nieznanego powodu.',
 ];

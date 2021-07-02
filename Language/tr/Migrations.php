@@ -5,8 +5,8 @@
  *
  * (c) CodeIgniter Foundation <admin@codeigniter.com>
  *
- * For the full copyright and license information, please view the LICENSE
- * file that was distributed with this source code.
+ * For the full copyright and license information, please view
+ * the LICENSE file that was distributed with this source code.
  */
 
 // Migration language settings
@@ -15,7 +15,6 @@ return [
 	'missingTable'  => 'Göç tablosu belirtilmeli.',
 	'disabled'      => 'Göçler yüklendi fakat etkinleştirilmedi veya yanlış kuruldu.',
 	'notFound'      => 'Göç dosyası bulunamadı: ',
-	'batchNotFound' => 'Target batch not found: ',
 	'empty'         => 'Herhangi bir göç dosyası bulunamadı.',
 	'gap'           => 'Göç kuyruğunda şu sürüm numarası yakınında bir boşluk var: ',
 	'classNotFound' => 'Göç sınıfı "%s" bulunamadı.',
@@ -30,14 +29,7 @@ return [
 	'migHelpSeed'     => "\t[name] isimli tohumlayıcıyı çalıştırır.",
 	'migCreate'       => "\t[name] isimli yeni bir göç oluşturur.",
 	'nameMigration'   => 'Göç dosyasına bir isim verin.',
-	'badCreateName'   => 'Bir göç dosyası adı belirtmelisiniz.',
-	'writeError'      => 'Yazma hatası nedeniyle dosya oluşturulamadı.',
-	'migNumberError'  => 'Migration number must be three digits, and there must not be any gaps in the sequence.',
-	'rollBackConfirm' => 'Are you sure you want to rollback?',
-	'refreshConfirm'  => 'Are you sure you want to refresh?',
 
-	'latest'            => 'Running all new migrations...',
-	'generalFault'      => 'Migration failed!',
 	'migInvalidVersion' => 'Geçersiz sürüm numarası belirtildi.',
 	'toVersionPH'       => '%s sürümüne göçülüyor...',
 	'toVersion'         => 'Mevcut sürüme göçülüyor....',

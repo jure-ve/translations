@@ -5,8 +5,8 @@
  *
  * (c) CodeIgniter Foundation <admin@codeigniter.com>
  *
- * For the full copyright and license information, please view the LICENSE
- * file that was distributed with this source code.
+ * For the full copyright and license information, please view
+ * the LICENSE file that was distributed with this source code.
  */
 
 // Images language settings
@@ -17,8 +17,6 @@ return [
 	'gifNotSupported'        => 'GIF resimleri lisans sınırlamaları nedeniyle genellikle desteklenmez. Bunun yerine JPG veya PNG resimler kullanabilirsiniz.',
 	'jpgNotSupported'        => 'JPG resimler desteklenmiyor.',
 	'pngNotSupported'        => 'PNG resimler desteklenmiyor.',
-	'webpNotSupported'       => 'WEBP images are not supported.',
-	'fileNotSupported'       => 'The supplied file is not a supported image type.',
 	'unsupportedImageCreate' => 'Sunucunuz bu tür resmi işlemek için gerekli GD fonksiyonunu desteklemiyor.',
 	'jpgOrPngRequired'       => 'Tercihlerinizde belirttiğiniz resim boyutlandırma protokolü yalnız JPEG veya PNG resim türleriyle çalışır.',
 	'rotateUnsupported'      => 'Resim döndürme sunucunuz tarafından desteklenmiyor.',

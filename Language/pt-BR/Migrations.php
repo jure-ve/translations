@@ -5,8 +5,8 @@
  *
  * (c) CodeIgniter Foundation <admin@codeigniter.com>
  *
- * For the full copyright and license information, please view the LICENSE
- * file that was distributed with this source code.
+ * For the full copyright and license information, please view
+ * the LICENSE file that was distributed with this source code.
  */
 
 // Migration language settings
@@ -30,8 +30,6 @@ return [
 	'migHelpSeed'     => "\tRoda o seeder nomeado [name].",
 	'migCreate'       => "\tCria uma nova migração nomeada [name]",
 	'nameMigration'   => 'Nomeie o arquivo de migração',
-	'badCreateName'   => 'Você deve fornecer um nome de arquivo de migração.',
-	'writeError'      => 'Erro ao tentar criar arquivo.',
 	'migNumberError'  => 'O número da migração deve ter três dígitos e não deve haver lacunas na sequência.',
 	'rollBackConfirm' => 'Você tem certeza que deseja reverter?',
 	'refreshConfirm'  => 'Você tem certeza que deseja atualizar?',
@@ -45,7 +43,7 @@ return [
 	'noneFound'         => 'Nenhuma migração foi encontrada.',
 	'migSeeder'         => 'Nome do seeder',
 	'migMissingSeeder'  => 'Você deve fornecer o nome de um seeder.',
-	'nameSeeder'        => 'Name the seeder file',
+	'nameSeeder'        => 'Nomeie o arquivo seeder',
 	'removed'           => 'Revertendo: ',
 	'added'             => 'Rodando: ',
 

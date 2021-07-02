@@ -5,8 +5,8 @@
  *
  * (c) CodeIgniter Foundation <admin@codeigniter.com>
  *
- * For the full copyright and license information, please view the LICENSE
- * file that was distributed with this source code.
+ * For the full copyright and license information, please view
+ * the LICENSE file that was distributed with this source code.
  */
 
 // Migration language settings
@@ -15,7 +15,6 @@ return [
 	'missingTable'  => 'La table des migrations doit être définie.',
 	'disabled'      => 'Les migrations ont été chargées mais sont désactivées ou mal paramétrées.',
 	'notFound'      => 'Fichier de migration non trouvé : ',
-	'batchNotFound' => 'Target batch not found: ',
 	'empty'         => 'Aucun fichier de migration trouvé',
 	'gap'           => 'Il y a un écart dans la séquence de migration du coté du numéro de version : ',
 	'classNotFound' => 'La classe de migration "%s" n\'a pas pu être trouvée.',
@@ -30,14 +29,8 @@ return [
 	'migHelpSeed'     => "\tLance le 'seeder' nommé [name].",
 	'migCreate'       => "\tCrée une nouvelle migration nommée [name]",
 	'nameMigration'   => 'Nomme le fichier de migration',
-	'badCreateName'   => 'Vous devez fournir un nom pour le fichier de migration.',
-	'writeError'      => 'Erreur durant la création du fichier.',
 	'migNumberError'  => 'Le numéro de migration doit comporter trois chiffres, et ne doit pas comporter de trous dans la séquence.',
-	'rollBackConfirm' => 'Are you sure you want to rollback?',
-	'refreshConfirm'  => 'Are you sure you want to refresh?',
 
-	'latest'            => 'Running all new migrations...',
-	'generalFault'      => 'Migration failed!',
 	'migInvalidVersion' => 'Numéro de version fourni invalide.',
 	'toVersionPH'       => 'Migration vers la version %s en cours...',
 	'toVersion'         => 'Migration vers la version actuelle en cours...',

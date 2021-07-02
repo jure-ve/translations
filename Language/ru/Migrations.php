@@ -5,8 +5,8 @@
  *
  * (c) CodeIgniter Foundation <admin@codeigniter.com>
  *
- * For the full copyright and license information, please view the LICENSE
- * file that was distributed with this source code.
+ * For the full copyright and license information, please view
+ * the LICENSE file that was distributed with this source code.
  */
 
 // Migration language settings
@@ -30,8 +30,6 @@ return [
 	'migHelpSeed'     => "\tРаботает SEEDER имени [name].",
 	'migCreate'       => "\tСоздает новую миграцию с именем [name].",
 	'nameMigration'   => 'Имя файла миграции',
-	'badCreateName'   => 'Необходимо указать имя файла миграции.',
-	'writeError'      => 'Ошибка при попытке создать файл.',
 	'migNumberError'  => 'Номер миграции должен состоять из трех цифр, и в нем не должно быть пробелов.',
 	'rollBackConfirm' => 'Вы уверены, что хотите откатиться назад ?',
 	'refreshConfirm'  => 'Вы уверены, что хотите обновить ?',

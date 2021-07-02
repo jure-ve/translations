@@ -5,8 +5,8 @@
  *
  * (c) CodeIgniter Foundation <admin@codeigniter.com>
  *
- * For the full copyright and license information, please view the LICENSE
- * file that was distributed with this source code.
+ * For the full copyright and license information, please view
+ * the LICENSE file that was distributed with this source code.
  */
 
 // Migration language settings
@@ -30,11 +30,9 @@ return [
 	'migHelpSeed'     => "\tSpustí seeder se jménem [ name ].",
 	'migCreate'       => "\tVytvoří novou migraci s názvem [ name ]",
 	'nameMigration'   => 'Pojmenujte migrační soubor',
-	'badCreateName'   => 'Musíte zadať název migračního souboru.',
-	'writeError'      => 'Chyba při vytváření souboru.',
-	'migNumberError'  => 'migrační číslo musí být tři číslice a v sekvenci nesmí být mezery.',
-	'rollBackConfirm' => 'Are you sure you want to rollback?',
-	'refreshConfirm'  => 'Are you sure you want to refresh?',
+	'migNumberError'  => 'Migrační číslo musí být tři číslice a v sekvenci nesmí být mezery.',
+	'rollBackConfirm' => 'Opravdu chcete změny vrátit zpět?',
+	'refreshConfirm'  => 'Opravdu si přejete obnovit?',
 
 	'latest'            => 'Spouštění všech nových migrací...',
 	'generalFault'      => 'Migrace selhala!',
@@ -43,12 +41,17 @@ return [
 	'toVersion'         => 'Probíhá migrace na aktuální verzi ...',
 	'rollingBack'       => 'Vracejí se zpět všechny migrace ...',
 	'noneFound'         => 'Nenašly se žádné migrace.',
-	'on'                => 'Zmigrováno na: ',
 	'migSeeder'         => 'Jméno seederu',
 	'migMissingSeeder'  => 'Musíte zadat jméno seederu.',
+	'nameSeeder'        => 'Zadejte název Seeder',
 	'removed'           => 'Vracím: ',
 	'added'             => 'Běží: ',
 
-	'version'  => 'Verze',
-	'filename' => 'Název souboru',
+	// Migrate Status
+	'namespace' => 'Jmenný prostor',
+	'filename'  => 'Název souboru',
+	'version'   => 'Verze',
+	'group'     => 'Skupina',
+	'on'        => 'Zmigrováno na: ',
+	'batch'     => 'Dávka',
 ];

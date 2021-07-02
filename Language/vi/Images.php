@@ -5,8 +5,8 @@
  *
  * (c) CodeIgniter Foundation <admin@codeigniter.com>
  *
- * For the full copyright and license information, please view the LICENSE
- * file that was distributed with this source code.
+ * For the full copyright and license information, please view
+ * the LICENSE file that was distributed with this source code.
  */
 
 // Images language settings
@@ -17,7 +17,6 @@ return [
 	'gifNotSupported'        => 'Hình ảnh GIF thường không được hỗ trợ do hạn chế cấp phép. Bạn có thể phải sử dụng hình ảnh JPG hoặc PNG thay thế.',
 	'jpgNotSupported'        => 'JPG hình ảnh không được hỗ trợ.',
 	'pngNotSupported'        => 'PNG hình ảnh không được hỗ trợ.',
-	'webpNotSupported'       => 'WEBP images are not supported.',
 	'fileNotSupported'       => 'Tệp được cung cấp không phải là loại hình ảnh được hỗ trợ.',
 	'unsupportedImageCreate' => 'Máy chủ của bạn không hỗ trợ chức năng GD cần thiết để xử lý loại hình ảnh này.',
 	'jpgOrPngRequired'       => 'Giao thức thay đổi kích thước hình ảnh được chỉ định trong tùy chọn của bạn chỉ hoạt động với các loại hình ảnh JPEG hoặc PNG.',
@@ -30,5 +29,5 @@ return [
 	'missingFont'            => 'Không thể tìm thấy phông chữ để sử dụng.',
 	'saveFailed'             => 'Không thể lưu hình ảnh. Hãy chắc chắn rằng thư mục hình ảnh và tập tin có thể ghi.',
 	'invalidDirection'       => 'Hướng lật chỉ có thể là `dọc` hoặc` ngang`. Đã nhập: {0}',
-	'exifNotSupported'       => 'Môi trường PHP không hỗ trợ đọc dữ liệu EXIF ​​cho hình ảnh.',
+	'exifNotSupported'       => 'Môi trường PHP không hỗ trợ đọc dữ liệu EXIF cho hình ảnh.',
 ];

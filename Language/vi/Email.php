@@ -5,8 +5,8 @@
  *
  * (c) CodeIgniter Foundation <admin@codeigniter.com>
  *
- * For the full copyright and license information, please view the LICENSE
- * file that was distributed with this source code.
+ * For the full copyright and license information, please view
+ * the LICENSE file that was distributed with this source code.
  */
 
 // Email language settings
@@ -29,5 +29,4 @@ return [
 	'SMTPAuthUsername'     => 'Không thể xác thực tên người dùng. Lỗi: {0}',
 	'SMTPAuthPassword'     => 'Không thể xác thực mật khẩu. Lỗi: {0}',
 	'SMTPDataFailure'      => 'Không thể gửi dữ liệu: {0}',
-	'exitStatus'           => 'Exit status code: {0}',
 ];

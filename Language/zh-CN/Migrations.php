@@ -5,8 +5,8 @@
  *
  * (c) CodeIgniter Foundation <admin@codeigniter.com>
  *
- * For the full copyright and license information, please view the LICENSE
- * file that was distributed with this source code.
+ * For the full copyright and license information, please view
+ * the LICENSE file that was distributed with this source code.
  */
 
 // Migration language settings
@@ -15,7 +15,6 @@ return [
 	'missingTable'  => '必须设置迁移表。',
 	'disabled'      => '迁移状态为禁用或不正确，请确认 app/Config/Migrations 文件的 $enabled 值是否为 true。',
 	'notFound'      => '找不到指定的迁移文件：',
-	'batchNotFound' => 'Target batch not found: ',
 	'empty'         => '没有指定的迁移文件。',
 	'gap'           => '版本号附近的迁移序列存在差异: ',
 	'classNotFound' => '找不到指定的迁移类 "%s" 。',
@@ -30,13 +29,7 @@ return [
 	'migHelpSeed'       => "\t运行填充程序，名称：[name]",
 	'migCreate'         => "\t创建一个新的迁移，名称：[name]",
 	'nameMigration'     => '命名迁移文件。',
-	'badCreateName'     => '你必须提供迁移文件名。',
-	'writeError'        => '尝试创建文件时出错。',
 	'migNumberError'    => '迁移号必须为3位数字且中间不能有任何空格。',
-	'rollBackConfirm'   => 'Are you sure you want to rollback?',
-	'refreshConfirm'    => 'Are you sure you want to refresh?',
-	'latest'            => 'Running all new migrations...',
-	'generalFault'      => 'Migration failed!',
 	'migInvalidVersion' => '提供的版本号无效。',
 	'toVersionPH'       => '迁移至 %s...',
 	'toVersion'         => '迁移至当前（current）版本...',

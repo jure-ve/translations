@@ -1,25 +1,40 @@
 #!/usr/bin/env php
 <?php
 
-error_reporting(-1);
-ini_set('display_errors', '1');
+require __DIR__ . '/../../vendor/codeigniter4/codeigniter4/system/Test/bootstrap.php';
 
-require __DIR__ . '/../../vendor/autoload.php';
+use CodeIgniter\CLI\CLI;
+use Translations\Tests\AbstractTranslationTestCase;
 
-use CodeIgniter\Language\AbstractTranslationTestCase;
-
-$args = $_SERVER['argv'];
-
-if (! isset($args[1]))
+if (! isset($argv[1]))
 {
-	fwrite(STDERR, 'Changed files are not provided. Aborting...');
+	CLI::error('No GitHub Event provided.', 'light_gray', 'red');
 	exit(1);
 }
 
-$files = $args[1];
-unset($args);
+$event = (string) $argv[1];
 
-$files = explode(' ', trim($files));
+if (! in_array($event, ['--pull-request', '--push'], true))
+{
+	CLI::error('Invalid GitHub Event provided.', 'light_gray', 'red');
+	exit(1);
+}
+
+if ($event === '--pull-request')
+{
+	$files = shell_exec('git diff --name-only --diff-filter=ACMRTUXB origin/develop..HEAD');
+}
+else
+{
+	$files = shell_exec('git diff --name-only --diff-filter=ACMRTUXB HEAD~..HEAD');
+}
+
+$isCIAffected    = strpos((string) $files, '.github/scripts/continuous-integration') !== false;
+$isBuildAffected = strpos((string) $files, '.github/workflows/build.yml') !== false;
+$isTestAffected  = preg_match('/tests\/Language\/(.+)Test(?:|Case)\.php/', $files) === 1;
+
+$files = str_replace(["\r\n", "\r"], "\n", $files);
+$files = explode("\n", trim($files));
 
 $stagedPhpFiles = [];
 
@@ -35,7 +50,7 @@ $locales = [];
 
 foreach ($stagedPhpFiles as $file)
 {
-	if (preg_match('/^Language\/(.*)\/.*\.php$/', $file, $matches))
+	if (preg_match('/^Language\/(.+)\/.+\.php$/', $file, $matches) === 1)
 	{
 		$locales[] = $matches[1];
 	}
@@ -44,35 +59,123 @@ foreach ($stagedPhpFiles as $file)
 $locales = array_unique($locales);
 $count   = count($locales);
 
+$passed = [];
+$failed = [];
+
+$phpunit = 'vendor/bin/phpunit';
+
+if (CLI::isWindows())
+{
+	$phpunit = strtr($phpunit, '/', '\\');
+}
+
 chdir(__DIR__ . '/../../');
 
-if ($count === 0)
+if ($count === 0 && ! ($isCIAffected || $isBuildAffected || $isTestAffected))
 {
-	fwrite(STDOUT, 'No language files to test.');
+	CLI::write('No language files to test.', 'black', 'green');
+	CLI::newLine();
 	exit(0);
 }
 
-if ($count === count(AbstractTranslationTestCase::$locales))
+// Check this first to account for new ICU locale additions
+if ($count > 0 && $count < count(AbstractTranslationTestCase::$locales))
 {
-	$return = 0;
-	fwrite(STDOUT, "Testing all language files in all locales.\n\n");
-	passthru('vendor/bin/phpunit --filter AllLocalesTranslationTest', $return);
+	$returns = 0;
+	$return  = 0;
 
-	exit($return);
+	foreach ($locales as $locale)
+	{
+		$class = (string) array_search($locale, AbstractTranslationTestCase::$locales, true);
+		$class = preg_replace('/^Translations\\\\Tests\\\\(.+)$/u', '$1', $class);
+
+		CLI::write("Executing vendor/bin/phpunit --color=always --filter {$class}\n", 'black', 'yellow');
+		passthru("{$phpunit} --color=always --filter {$class}", $return);
+
+		if ($return !== 0)
+		{
+			$failed[] = $locale;
+		}
+		else
+		{
+			$passed[] = $locale;
+		}
+
+		$returns += $return;
+	}
+}
+elseif ($count === count(AbstractTranslationTestCase::$locales) || $isCIAffected || $isBuildAffected || $isTestAffected)
+{
+	$reasons = [
+		[
+			$count === count(AbstractTranslationTestCase::$locales),
+			'All ICU locales have been modified.',
+		],
+		[
+			$isCIAffected,
+			'The continuous integration script has been modified.',
+		],
+		[
+			$isBuildAffected,
+			'The build action workflow has been modified.',
+		],
+		[
+			$isTestAffected,
+			'A test suite file has been modified.',
+		],
+	];
+
+	// Assign the locale count in case the first reason is false
+	$count = count(AbstractTranslationTestCase::$locales);
+
+	ob_start();
+
+	$returns = 0;
+	CLI::write('Testing all language files in all locales.', 'black', 'yellow');
+
+	foreach ($reasons as [$reason, $explanation])
+	{
+		if ($reason)
+		{
+			CLI::write('Reason: ' . $explanation . "\n", 'black', 'yellow');
+			break;
+		}
+	}
+
+	passthru("{$phpunit} --color=always", $returns);
+
+	$result = ob_get_clean();
+	$failed = [];
+
+	if (preg_match_all('/\(\'(.+)\'\)/', $result, $failed))
+	{
+		$failed = array_unique($failed[1]);
+	}
+
+	$passed = array_values(array_diff(AbstractTranslationTestCase::$locales, $failed));
+
+	CLI::write($result);
 }
 
-$returns = 0;
-$return  = 0;
-
-foreach ($locales as $locale)
+if ($failed === [])
 {
-	$localeMap = array_flip(AbstractTranslationTestCase::$locales);
-	$class     = preg_replace('/^CodeIgniter\\\\Language\\\\(.*)$/u', '$1', $localeMap[$locale]);
-
-	fwrite(STDOUT, 'Executing vendor/bin/phpunit --color=always --filter ' . $class . "\n\n");
-	passthru("vendor/bin/phpunit --color=always --filter {$class}", $return);
-
-	$returns += $return;
+	CLI::write('All tested locales passed!', 'black', 'green');
 }
+elseif ($count === count($failed))
+{
+	CLI::write('All tested locales have failed!', 'light_gray', 'red');
+}
+else
+{
+	CLI::write('Some locales have failed the tests!', 'black', 'yellow');
+}
+
+sort($passed);
+sort($failed);
+
+CLI::newLine();
+CLI::write(sprintf('Passed locales (%d of %d): %s', count($passed), $count, implode(', ', $passed) ?: '--'), 'green');
+CLI::write(sprintf('Failed locales (%d of %d): %s', count($failed), $count, implode(', ', $failed) ?: '--'), 'red');
+CLI::newLine();
 
 exit($returns ? 1 : 0);

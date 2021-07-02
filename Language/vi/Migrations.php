@@ -5,8 +5,8 @@
  *
  * (c) CodeIgniter Foundation <admin@codeigniter.com>
  *
- * For the full copyright and license information, please view the LICENSE
- * file that was distributed with this source code.
+ * For the full copyright and license information, please view
+ * the LICENSE file that was distributed with this source code.
  */
 
 // Migration language settings
@@ -30,8 +30,6 @@ return [
 	'migHelpSeed'     => "\tChạy seeder có tên [name].",
 	'migCreate'       => "\tTạo một migration mới có tên [name]",
 	'nameMigration'   => 'Đặt tên cho tệp migration',
-	'badCreateName'   => 'Bạn phải cung cấp tên tệp migration.',
-	'writeError'      => 'Lỗi khi tạo tệp {0}, kiểm tra xem thư mục có thể ghi được không.',
 	'migNumberError'  => 'Số di chuyển phải có ba chữ số và không được có bất kỳ khoảng trống nào trong chuỗi.',
 	'rollBackConfirm' => 'Bạn có chắc chắn muốn quay trở lại?',
 	'refreshConfirm'  => 'Bạn có chắc chắn muốn làm mới?',
@@ -42,8 +40,6 @@ return [
 	'toVersionPH'       => 'Chuyển sang phiên bản %s...',
 	'toVersion'         => 'Chuyển sang phiên bản hiện tại...',
 	'rollingBack'       => 'Di chuyển trở lại hàng loạt: ',
-	'noneFound'         => 'No migrations were found.',
-	'on'                => 'Migrated On: ',
 	'migSeeder'         => 'Tên Seeder',
 	'migMissingSeeder'  => 'Bạn phải cung cấp một tên seeder.',
 	'removed'           => 'Quay trở lại: ',

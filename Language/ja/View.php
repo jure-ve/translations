@@ -5,8 +5,8 @@
  *
  * (c) CodeIgniter Foundation <admin@codeigniter.com>
  *
- * For the full copyright and license information, please view the LICENSE
- * file that was distributed with this source code.
+ * For the full copyright and license information, please view
+ * the LICENSE file that was distributed with this source code.
  */
 
 // View language settings
@@ -16,5 +16,5 @@ return [
 	'invalidCellParameter'  => '{0} は有効なパラメータ名ではありません。', //{0} is not a valid param name.
 	'noCellClass'           => 'ビューセルクラスは提供されていません。', //No view cell class provided.
 	'invalidCellClass'      => 'ビューセルクラス「{0}」を見つけることができません。', //Unable to locate view cell class: {0}.
-	'tagSyntaxError'        => 'パーサータグ「{0}」に構文エラーがあります。。', //You have a syntax error in your Parser tags: {0}
+	'tagSyntaxError'        => 'パーサータグ「{0}」に構文エラーがあります。', //You have a syntax error in your Parser tags: {0}
 ];

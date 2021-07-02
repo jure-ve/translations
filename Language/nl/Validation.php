@@ -5,8 +5,8 @@
  *
  * (c) CodeIgniter Foundation <admin@codeigniter.com>
  *
- * For the full copyright and license information, please view the LICENSE
- * file that was distributed with this source code.
+ * For the full copyright and license information, please view
+ * the LICENSE file that was distributed with this source code.
  */
 
 // Validation language settings
@@ -49,7 +49,6 @@ return [
 	'required'              => 'Het veld {field} is verplicht.',
 	'required_with'         => 'Het veld {field} is verplicht wanneer {param} aanwezig is.',
 	'required_without'      => 'Het veld {field} is verplicht wanneer {param} niet aanwezig is.',
-	'string'                => 'The {field} field must be a valid string.',
 	'timezone'              => 'Het veld {field} moet een geldige tijdzone zijn.',
 	'valid_base64'          => 'Het veld {field} moet een geldige base64 string zijn.',
 	'valid_email'           => 'Het veld {field} moet een geldig emailadres bevatten.',

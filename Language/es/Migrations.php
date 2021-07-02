@@ -5,8 +5,8 @@
  *
  * (c) CodeIgniter Foundation <admin@codeigniter.com>
  *
- * For the full copyright and license information, please view the LICENSE
- * file that was distributed with this source code.
+ * For the full copyright and license information, please view
+ * the LICENSE file that was distributed with this source code.
  */
 
 // Migration language settings
@@ -30,11 +30,7 @@ return [
 	'migHelpSeed'     => "\tEjecuta la semilla de nombre [name].",
 	'migCreate'       => "\tCrea una nueva migración llamada [name]",
 	'nameMigration'   => 'Nombre el archivo de migración',
-	'badCreateName'   => 'Debe establecer un nombre al archivo de migración.',
-	'writeError'      => 'Error al intentar crear el archivo.',
 	'migNumberError'  => 'El número de migración debe tener tres dígitos y no debe haber espacios en la secuencia.',
-	'rollBackConfirm' => 'Are you sure you want to rollback?',
-	'refreshConfirm'  => 'Are you sure you want to refresh?',
 
 	'latest'            => 'Migrando a la última versión...',
 	'generalFault'      => '¡La migración falló!',

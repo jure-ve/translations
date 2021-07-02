@@ -5,8 +5,8 @@
  *
  * (c) CodeIgniter Foundation <admin@codeigniter.com>
  *
- * For the full copyright and license information, please view the LICENSE
- * file that was distributed with this source code.
+ * For the full copyright and license information, please view
+ * the LICENSE file that was distributed with this source code.
  */
 
 // Images language settings
@@ -17,8 +17,8 @@ return [
 	'gifNotSupported'        => 'Obrázky GIF nejsou často podporovány kvůli licenčním omezením. Možno budete muset místo toho použít obrázky JPG nebo PNG.',
 	'jpgNotSupported'        => 'Obrázky JPG nejsou podporovány.',
 	'pngNotSupported'        => 'Obrázky PNG nejsou podporovány.',
-	'webpNotSupported'       => 'WEBP images are not supported.',
-	'fileNotSupported'       => 'The supplied file is not a supported image type.',
+	'webpNotSupported'       => 'Obrázky WebP nejsou podporovány.',
+	'fileNotSupported'       => 'Dodaný soubor není podporovaným typem obrázku.',
 	'unsupportedImageCreate' => 'Váš server nepodporuje funkci GD potřebnou pro zpracování tohoto typu obrázku.',
 	'jpgOrPngRequired'       => 'Protokol pro změnu velikost obrázku specifikovaný ve vašem nastavení funguje pouze pro typy obrázků JPEG nebo PNG.',
 	'rotateUnsupported'      => 'Zdá se, že váš server nepodporuje otáčení obrázků.',
@@ -27,7 +27,7 @@ return [
 	'rotationAngleRequired'  => 'Na otočení obrázku je potřeba úhel rotace.',
 	'invalidPath'            => 'Cesta k obrázku není správná.',
 	'copyFailed'             => 'Rutina kopírování obrázků selhala.',
-	'missingFont'            => 'není možné nalézt písmo pro použití.',
+	'missingFont'            => 'Není možné nalézt písmo pro použití.',
 	'saveFailed'             => 'Obrázek se nepodařilo uložit. Ujistěte se, že adresář obrázků a souborů je zapisovatelný.',
 	'invalidDirection'       => 'Směr překlopení může být pouze "vertikální" nebo "horizontální". Zadáno: {0}',
 	'exifNotSupported'       => 'Tato instalace PHP nepodporuje čtení EXIF dat.',

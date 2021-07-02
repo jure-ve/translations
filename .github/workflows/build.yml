@@ -1,6 +1,8 @@
 name: build
 
 on:
+  schedule:
+    - cron: '0 0 * * *'
   push:
     branches:
       - develop
@@ -20,28 +22,30 @@ jobs:
 
   main:
     name: Build [PHP ${{ matrix.php-versions }}]
-    runs-on: ubuntu-latest
-    if: "!contains(github.event.head_commit.message, '[ci skip]')"
+    runs-on: ubuntu-20.04
+    if: github.repository == 'codeigniter4/translations'
 
     strategy:
       fail-fast: false
       matrix:
-        php-versions: ['7.3', '7.4']
+        php-versions: ['7.3', '7.4', '8.0']
 
     steps:
-      - name: Checkout
+      - name: Checkout code
         uses: actions/checkout@v2
+        with:
+          fetch-depth: 2
 
-      - name: Setup PHP, with composer and extensions
+      - name: Checkout other refs
+        run: |
+          git fetch --no-tags --prune --depth=2 origin +refs/heads/*:refs/remotes/origin/*
+
+      - name: Setup PHP
         uses: shivammathur/setup-php@v2
         with:
           php-version: ${{ matrix.php-versions }}
-          tools: composer
-          extensions: intl, mbstring, xdebug
+          extensions: intl, mbstring
           coverage: xdebug
-
-      - name: Validate composer.json
-        run: composer validate --strict
 
       - name: Get composer cache directory
         id: composer-cache
@@ -63,10 +67,10 @@ jobs:
       - name: Install dependencies
         run: composer update --ansi --no-scripts --no-interaction
 
-      - name: Get changed files
-        id: files
-        uses: jitterbit/get-changed-files@v1
-
       - name: Run Translations Test Suite
         run: |
-          php .github/scripts/continuous-integration "${{ steps.files.outputs.all }}"
+          if [ "${{ github.event_name }}" = "pull_request" ]; then
+            php .github/scripts/continuous-integration --pull-request
+          else
+            php .github/scripts/continuous-integration --push
+          fi

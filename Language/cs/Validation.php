@@ -5,8 +5,8 @@
  *
  * (c) CodeIgniter Foundation <admin@codeigniter.com>
  *
- * For the full copyright and license information, please view the LICENSE
- * file that was distributed with this source code.
+ * For the full copyright and license information, please view
+ * the LICENSE file that was distributed with this source code.
  */
 
 // Validation language settings
@@ -22,7 +22,7 @@ return [
 	'alpha'                 => 'Pole {field} může obsahovat pouze abecední znaky.',
 	'alpha_dash'            => 'Pole {field} může obsahovat pouze alfanumerické znaky, podtržítka a pomlčky.',
 	'alpha_numeric'         => 'Pole {field} může obsahovat pouze alfanumerické znaky.',
-	'alpha_numeric_punct'   => 'The {field} field may contain only alphanumeric characters, spaces, and  ~ ! # $ % & * - _ + = | : . characters.',
+	'alpha_numeric_punct'   => 'Pole {field} může obsahovat pouze alfanumerické znaky, mezery a ~ ! # $ % & * - _ + = | : . znaky.',
 	'alpha_numeric_space'   => 'Pole {field} může obsahovat pouze alfanumerické znaky a mezery.',
 	'alpha_space'           => 'Pole {field} může obsahovat pouze abecední znaky a mezery.',
 	'decimal'               => 'Pole {field} musí obsahovat číslo (0-9).',
@@ -31,7 +31,7 @@ return [
 	'exact_length'          => 'Pole {field} musí být přesně {param} znaků dlouhé.',
 	'greater_than'          => 'Pole {field} musí obsahovat číslo větší než {param}.',
 	'greater_than_equal_to' => 'Pole {field} musí obsahovat číslo větší nebo rovno než {param}.',
-	'hex'                   => 'The {field} field may only contain hexidecimal characters.',
+	'hex'                   => 'Pole {field} může obsahovat pouze hexadecimální znaky.',
 	'in_list'               => 'Pole {field} musí být jedno z: {param}.',
 	'integer'               => 'Pole {field} musí obsahovat celé číslo.',
 	'is_natural'            => 'Pole {field} musí obsahovat pouze číslice.',
@@ -44,12 +44,13 @@ return [
 	'max_length'            => 'Pole {field} nemůže překročit počet znaků: {param}.',
 	'min_length'            => 'Pole {field} musí být delší než {param} znaky/ů.',
 	'not_equals'            => 'Pole {field} nemůže být: {param}.',
+	'not_in_list'           => 'Pole {field} nesmí být jedno z: {param}.',
 	'numeric'               => 'Pole {field} musí obsahovat pouze čísla.',
 	'regex_match'           => 'Pole {field} má nesprávný formát.',
 	'required'              => 'Pole {field} je povinné.',
 	'required_with'         => 'Pole {field} je povinné pokud {param} je zadán.',
 	'required_without'      => 'Pole {field} je povinné pokud {param} není zadán.',
-	'string'                => 'The {field} field must be a valid string.',
+	'string'                => 'Pole {field} musí být platný řetězec.',
 	'timezone'              => 'Pole {field} musí být platná časová zóna.',
 	'valid_base64'          => 'Pole {field} musí být platný base64 řetězec.',
 	'valid_email'           => 'Pole {field} musí obsahovat platnou emailovú adresu.',
