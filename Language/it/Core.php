@@ -1,7 +1,7 @@
 <?php
 
 /**
- * This file is part of the CodeIgniter 4 framework.
+ * This file is part of CodeIgniter 4 framework.
  *
  * (c) CodeIgniter Foundation <admin@codeigniter.com>
  *
@@ -11,9 +11,10 @@
 
 // Core language settings
 return [
-	'copyError'                    => 'Riscontrato un errore nel tentativo di riposizionare il file. Si prega di assicurarsi che la cartella dei file sia scrivibile.',
-	'enabledZlibOutputCompression' => 'La direttiva zlib.output_compression presente nel file php.ini è abilitata. Questa impostazione potrebbe causare dei conflitti con altri tipi di output buffer.',
-	'invalidFile'                  => 'Non valido il file: {0}',
-	'missingExtension'             => '{0} estensione non è caricata.',
-	'noHandlers'                   => '{0} deve prevedere almeno un Gestore.',
+    'copyError'                    => 'Riscontrato un errore nel tentativo di riposizionare il file. Si prega di assicurarsi che la cartella dei file sia scrivibile.',
+    'enabledZlibOutputCompression' => 'La direttiva zlib.output_compression presente nel file php.ini è abilitata. Questa impostazione potrebbe causare dei conflitti con altri tipi di output buffer.',
+    'invalidFile'                  => 'Non valido il file: {0}',
+    'invalidPhpVersion'            => 'Per eseguire CodeIgniter, la tua versione di PHP deve essere {0} o superiore. Versione attuale: {1}',
+    'missingExtension'             => '{0} estensione non è caricata.',
+    'noHandlers'                   => '{0} deve prevedere almeno un Gestore.',
 ];

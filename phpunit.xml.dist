@@ -5,6 +5,7 @@
          cacheResultFile=".phpunit.cache/test-results"
          backupGlobals="false"
          colors="true"
+         columns="max"
          convertErrorsToExceptions="true"
          convertNoticesToExceptions="true"
          convertWarningsToExceptions="true"
@@ -14,11 +15,11 @@
          stopOnSkipped="false"
          verbose="true">
     <testsuites>
-        <testsuite name="Language TestSuite">
-            <directory suffix="Test.php">tests/Language</directory>
+        <testsuite name="Automatic Review Test Suite">
+            <directory suffix="Test.php">tests/AutoReview</directory>
         </testsuite>
-        <testsuite name="Utils TestSuite">
-            <directory suffix="Test.php">tests/utils</directory>
+        <testsuite name="Language Test Suite">
+            <directory suffix="Test.php">tests/Language</directory>
         </testsuite>
     </testsuites>
 

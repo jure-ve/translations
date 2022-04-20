@@ -5,6 +5,47 @@ All notable changes to this library will be documented in this file:
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/)
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [v4.1.6](https://github.com/codeigniter4/translations/compare/v4.1.5...v4.1.6) - 2022-01-05
+
+### Added
+
+- Added script to check untranslated locales, using `php bin/test`
+
+### Changed
+
+- de (German)
+- ja (Japanese)
+- id (Indonesian)
+- it (Italian)
+- pt-BR (Brazilian)
+- sv-SE (Swedish-Sweden)
+- zh-CN (Simplified Chinese)
+- zh-TW (Traditional Chinese)
+
+## [v4.1.5](https://github.com/codeigniter4/translations/compare/v4.1.4...v4.1.5) - 2021-11-10
+
+### Changed
+
+- fr (French)
+- pl (Polish)
+- ko (Korean)
+
+## [v4.1.4](https://github.com/codeigniter4/translations/compare/v4.1.3...v4.1.4) - 2021-09-08
+
+### Added
+
+- th (Thai)
+- Switch to [official coding standard](https://github.com/codeigniter/coding-standard)
+
+### Changed
+
+- ar (Arabic)
+- de (German)
+- es (Spanish)
+- ja (Japanese)
+- sv-SE (Swedish-Sweden)
+- zh-TW (Traditional Chinese)
+
 ## [v4.1.3](https://github.com/codeigniter4/translations/compare/v4.1.2...v4.1.3) - 2021-06-06
 
 ### Changed

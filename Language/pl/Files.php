@@ -1,7 +1,7 @@
 <?php
 
 /**
- * This file is part of the CodeIgniter 4 framework.
+ * This file is part of CodeIgniter 4 framework.
  *
  * (c) CodeIgniter Foundation <admin@codeigniter.com>
  *
@@ -11,6 +11,8 @@
 
 // Files language settings
 return [
-	'fileNotFound' => 'Nie znaleziono pliku: {0}',
-	'cannotMove'   => 'Nie można przenieść pliku {0} do {1} ({2})',
+    'fileNotFound'      => 'Nie znaleziono pliku: {0}',
+    'cannotMove'        => 'Nie można przenieść pliku {0} do {1} ({2})',
+    'expectedDirectory' => '{0} oczekiwał prawidłowego katalogu.',
+    'expectedFile'      => '{0} oczekiwał prawidłowego pliku.',
 ];

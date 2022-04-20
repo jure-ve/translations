@@ -1,7 +1,7 @@
 <?php
 
 /**
- * This file is part of the CodeIgniter 4 framework.
+ * This file is part of CodeIgniter 4 framework.
  *
  * (c) CodeIgniter Foundation <admin@codeigniter.com>
  *
@@ -11,6 +11,8 @@
 
 // Files language settings
 return [
-	'fileNotFound' => 'Berkas tidak ditemukan: {0}',
-	'cannotMove'   => 'Tidak dapat memindahkan berkas {0} ke {1} ({2})',
+    'fileNotFound'      => 'Berkas tidak ditemukan: {0}',
+    'cannotMove'        => 'Tidak dapat memindahkan berkas dari {0} ke {1} ({2}).',
+    'expectedDirectory' => '{0} mengharapkan direktori yang valid.',
+    'expectedFile'      => '{0} mengharapkan berkas yang valid.',
 ];

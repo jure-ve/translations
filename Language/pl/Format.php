@@ -1,7 +1,7 @@
 <?php
 
 /**
- * This file is part of the CodeIgniter 4 framework.
+ * This file is part of CodeIgniter 4 framework.
  *
  * (c) CodeIgniter Foundation <admin@codeigniter.com>
  *
@@ -11,6 +11,8 @@
 
 // Format language settings
 return [
-	'invalidJSON'      => 'Nie można przeanalizować łańcucha JSON, błąd: "{0}".',
-	'missingExtension' => 'Rozszerzenie SimpleXML jest wymagane do formatowania XML.',
+    'invalidFormatter' => '"{0}" nie jest prawidłową klasą formatującą.',
+    'invalidJSON'      => 'Nie można przeanalizować łańcucha JSON, błąd: "{0}".',
+    'invalidMime'      => 'Nie ma zdefiniowanego formatowania dla typu mime: "{0}".',
+    'missingExtension' => 'Rozszerzenie SimpleXML jest wymagane do formatowania XML.',
 ];

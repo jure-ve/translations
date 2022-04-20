@@ -1,7 +1,7 @@
 <?php
 
 /**
- * This file is part of the CodeIgniter 4 framework.
+ * This file is part of CodeIgniter 4 framework.
  *
  * (c) CodeIgniter Foundation <admin@codeigniter.com>
  *
@@ -11,6 +11,8 @@
 
 // Files language settings
 return [
-	'fileNotFound' => '找不到檔案：{0}',
-	'cannotMove'   => '無法將檔案從 {0} 移動到 {1}。({2})',
+    'fileNotFound'      => '找不到檔案：{0}',
+    'cannotMove'        => '無法將檔案從 {0} 移動到 {1}。({2})',
+    'expectedDirectory' => '{0} 需要是一個有效的目錄。',
+    'expectedFile'      => '{0} 需要一個有效的檔。',
 ];

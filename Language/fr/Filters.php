@@ -1,7 +1,7 @@
 <?php
 
 /**
- * This file is part of the CodeIgniter 4 framework.
+ * This file is part of CodeIgniter 4 framework.
  *
  * (c) CodeIgniter Foundation <admin@codeigniter.com>
  *
@@ -11,5 +11,6 @@
 
 // Filters language settings
 return [
-	'incorrectInterface' => '{0} doit implémenter CodeIgniter\Filters\FilterInterface.',
+    'noFilter'           => 'Le filtre {0} doit avoir un alias correspondant défini.',
+    'incorrectInterface' => '{0} doit implémenter CodeIgniter\Filters\FilterInterface.',
 ];
