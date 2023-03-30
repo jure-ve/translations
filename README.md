@@ -24,6 +24,10 @@ capitalized, and with the two parts separated by a hyphen.
 
 An example would be "en" for English, and "en-US" for the variations appropriate to the United States.
 
+## Translation Status
+
+See <https://codeigniter4.github.io/translations/>.
+
 ## Repository Information
 
 Each ICU locale is maintained by a community member, per the table below. The role of maintainers is to
@@ -31,16 +35,18 @@ provide a single authority for vetting translations for a given language, since 
 claims no expertise beyond English.
 
 | Locale | Language            | As of** | Github User           | Maintainer
-|--------|---------------------| ------- |-----------------------| --------------------
+|--------|---------------------|---------|-----------------------| --------------------
 | ar     | Arabic              | 4.0.0   | [daif][ar]            | Daif Alotaibi
-| bs     | Bosnian             | 4.x     | [demirkaric][bs]      | Demir Karić
+| bg     | Bulgarian           | 4.2.2   | [ivcho02][bg]         | Ivaylo Tsvetanov
+| bn     | Bengali             | 4.3.0   | [hafijul233][bn]      | Mohammad Hafijul Islam
+| bs     | Bosnian             | 4.2.0   | [demirkaric][bs]      | Demir Karić
 | cs     | Czech               | 4.0.3   | [PavelTajdus][cs]     | Pavel Tajduš
 | de     | German              | 4.0.0   | [sba][de]             | Stefan Bauer
 | en     | English             | 4.0.0   | **N/A**               | CI team
 | es     | Spanish             | 4.0.0   | [nachoaguirre][es]    | Ignacio Aguirre
-| fa     | Farsi               | 4.0.0   | [smhnaji][fa]         | Mohammad Naji
+| fa     | Farsi               | 4.0.0   | [msalehi-d][fa]       | Mohammad Salehi
 | fr     | French              | 4.0.0   | [amuratet][fr]        | Amuratet?
-| hu     | Hungarian           | 4.x     | [kzolee1][hu]         | Zoltan Kovacs
+| hu     | Hungarian           | 4.2.0   | [kzolee1][hu]         | Zoltan Kovacs
 | id     | Indonesian          | 4.0.0   | [ridho1991][id]       | Mutasim Ridlo
 | it     | Italian             | 4.0.0   | [luk3b8][it]          | Luca Rasia
 | ja     | Japanese            | 4.0.3   | [kenjis][ja]          | Kenji Suzuki
@@ -53,9 +59,11 @@ claims no expertise beyond English.
 | pl     | Polish              | 4.0.0   | [DEVELPL][pl]         | Maciej Jasiewicz
 | pt     | Portuguese          | 4.0.0   | [rbm0407][pt]         | Rodrigo Borges
 | pt-BR  | Brazilian           | 4.0.0   | [natanfelles][pt-BR]  | Natan Felles
+| ro     | Romanian            | 4.2.1   | [ed3][ro]             | Ed
 | ru     | Russian             | 4.0.0   | [DigitalWolf98][ru]   | Vladislav Rykhtikov
 | si     | Sinhala             | 4.0.3   | [npwsamarasinghe][si] | Nalaka Prasad
 | sk     | Slovak              | 4.0.0   | [xbotkaj][sk]         | Jozef Botka
+| sr     | Serbian             | 4.3.1   | [nebojsajsimic][sr]   | Nebojša Simić
 | sv-SE  | Swedish - Sweden    | 4.0.3   | [tangix][sv-SE]       | Mattias Sandström
 | th     | Thai                | 4.1.4   | [karidoe][th]         | Anuchit Thiamuan
 | tr     | Turkish             | 4.0.0   | [obozdag][tr]         | obozdag
@@ -67,11 +75,13 @@ claims no expertise beyond English.
 _**Version where the locale was released. 4.x denotes `Unreleased`._
 
 [ar]: https://github.com/daif
+[bg]: https://github.com/ivcho02
+[bn]: https://github.com/hafijul233
 [bs]: https://github.com/demirkaric
 [cs]: https://github.com/PavelTajdus
 [de]: https://github.com/sba
 [es]: https://github.com/nachoaguirre
-[fa]: https://github.com/smhnaji
+[fa]: https://github.com/msalehi-d
 [fr]: https://github.com/amuratet
 [hu]: https://github.com/kzolee1
 [id]: https://github.com/ridho1991
@@ -86,9 +96,11 @@ _**Version where the locale was released. 4.x denotes `Unreleased`._
 [pl]: https://github.com/DEVELPL
 [pt]: https://github.com/rbm0407
 [pt-BR]: https://github.com/natanfelles
+[ro]: https://github.com/ed3
 [ru]: https://github.com/DigitalWolf98
 [si]: https://github.com/npwsamarasinghe
 [sk]: https://github.com/xbotkaj
+[sr]: https://github.com/nebojsajsimic
 [sv-SE]: https://github.com/tangix
 [th]: https://github.com/karidoe
 [tr]: https://github.com/obozdag

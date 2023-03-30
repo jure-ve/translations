@@ -52,8 +52,10 @@ return [
     'emptyController'    => 'Kein Controller angegeben.',
     'controllerNotFound' => 'Der Controller oder seine Methode wurde nicht gefunden: {0}::{1}',
     'methodNotFound'     => 'Die Controllermethode wurde nicht gefunden: {0}',
+    'localeNotSupported' => 'Nicht unterstützte Sprache: {0}',
 
     // CSRF
+    // @deprecated use `Security.disallowedAction`
     'disallowedAction' => 'Die angeforderte Aktion ist nicht erlaubt.',
 
     // Uploaded file moving
@@ -72,5 +74,6 @@ return [
     'uploadErrUnknown'   => 'Die Datei "%s" konnte wegen eines unbekannten Fehlers nicht hochgeladen werden.',
 
     // SameSite setting
+    // @deprecated
     'invalidSameSiteSetting' => 'Die SameSite-Einstellung kann nur None, Lax, Strict, oder ein leerer String sein. Gegeben: {0}',
 ];

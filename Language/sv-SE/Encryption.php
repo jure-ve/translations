@@ -11,9 +11,9 @@
 
 return [
     'noDriverRequested'    => 'Ingen driver angiven.',
-    'noHandlerAvailable'   => 'Kunde inte hitta någon tillgänglig {0} krypteringshanterare.',
+    'noHandlerAvailable'   => 'Kunde inte hitta någon tillgänglig "{0}" krypteringshanterare.',
     'unKnownHandler'       => '"{0}" kan inte konfigureras.',
-    'starterKeyNeeded'     => 'Krypterigen kräver en initieringsnyckel.',
+    'starterKeyNeeded'     => 'Krypteringen kräver en initial nyckel.',
     'authenticationFailed' => 'Dekryptering: autentiseringen misslyckades.',
     'encryptionFailed'     => 'Krypteringen misslyckades.',
 ];

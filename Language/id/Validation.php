@@ -13,10 +13,10 @@
 return [
     // Core Messages
     'noRuleSets'      => 'Tidak ada aturan yang ditentukan dalam konfigurasi Validasi.',
-    'ruleNotFound'    => '{0} bukan sebuah aturan yang valid.',
-    'groupNotFound'   => '{0} bukan sebuah grup aturan validasi.',
-    'groupNotArray'   => '{0} grup aturan harus berupa sebuah array.',
-    'invalidTemplate' => '{0} bukan sebuah template Validasi yang valid.',
+    'ruleNotFound'    => '"{0}" bukan sebuah aturan yang valid.',
+    'groupNotFound'   => '"{0}" bukan sebuah grup aturan validasi.',
+    'groupNotArray'   => '"{0}" grup aturan harus berupa sebuah array.',
+    'invalidTemplate' => '"{0}" bukan sebuah template Validasi yang valid.',
 
     // Rule Messages
     'alpha'                 => 'Bidang {field} hanya boleh mengandung karakter alfabet.',
@@ -53,11 +53,13 @@ return [
     'string'                => 'Bidang {field} harus berupa string yang valid.',
     'timezone'              => 'Bidang {field} harus berupa sebuah zona waktu yang valid.',
     'valid_base64'          => 'Bidang {field} harus berupa sebuah string base64 yang valid.',
-    'valid_email'           => 'Bidang {field} harus berisi sebuah alamat email yang valid.',
-    'valid_emails'          => 'Bidang {field} harus berisi semua alamat email yang valid.',
+    'valid_email'           => 'Bidang {field} harus berisi sebuah alamat surel yang valid.',
+    'valid_emails'          => 'Bidang {field} harus berisi semua alamat surel yang valid.',
     'valid_ip'              => 'Bidang {field} harus berisi sebuah IP yang valid.',
     'valid_url'             => 'Bidang {field} harus berisi sebuah URL yang valid.',
+    'valid_url_strict'      => 'Bidang {field} harus berisi sebuah URL yang valid.',
     'valid_date'            => 'Bidang {field} harus berisi sebuah tanggal yang valid.',
+    'valid_json'            => 'Bidang {field} harus berisi sebuah json yang valid.',
 
     // Credit Cards
     'valid_cc_num' => '{field} tidak tampak sebagai sebuah nomor kartu kredit yang valid.',

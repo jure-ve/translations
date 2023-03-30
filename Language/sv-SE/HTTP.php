@@ -11,13 +11,13 @@
 
 return [
     // CurlRequest
-    'missingCurl'     => 'CURL måste bli aktiverat för att kunna använda klassen CURLRequest.',
-    'invalidSSLKey'   => 'Kan inte konfigurera SSL Key. {0} är inte en giltig fil.',
-    'sslCertNotFound' => 'SSL certifikatet kunde inte hittas: {0}',
+    'missingCurl'     => 'CURL måste vara aktiverat för att kunna använda klassen CURLRequest.',
+    'invalidSSLKey'   => 'Kan inte konfigurera SSL Key. "{0}" är inte en giltig fil.',
+    'sslCertNotFound' => 'SSL certifikatet kunde inte hittas: "{0}"',
     'curlError'       => '{0} : {1}',
 
     // IncomingRequest
-    'invalidNegotiationType' => '{0} är inte en giltig negotiation typ. Den måste bli en av: media, charset, encoding, language.',
+    'invalidNegotiationType' => '"{0}" är inte en giltig negotiation typ. Den måste vara en av: media, charset, encoding, language.',
 
     // Message
     'invalidHTTPProtocol' => 'Felaktigt HTTP Protocol Version. Måste bli en av: {0}',
@@ -26,11 +26,11 @@ return [
     'emptySupportedNegotiations' => 'En array med giltiga värden för alla Negotiations måste anges.',
 
     // RedirectResponse
-    'invalidRoute' => 'Routen {0} kunde inte hittas vid reverse-routing.',
+    'invalidRoute' => 'Routen "{0}" kunde inte hittas.',
 
     // DownloadResponse
     'cannotSetBinary'        => 'När sökväg anges kan inte binär sättas.',
-    'cannotSetFilepath'      => 'Kan inte sätta sökväg när binär är satt: {0}',
+    'cannotSetFilepath'      => 'Kan inte sätta sökväg när binär är satt: "{0}"',
     'notFoundDownloadSource' => 'Kunde inte hitta nedladdade filen.',
     'cannotSetCache'         => 'Stödjer inte cachening för nedladdning.',
     'cannotSetStatusCode'    => 'Stödjer inte byte av statuskod för nedladdning. Kod: {0}, anledning: {1}',
@@ -41,8 +41,8 @@ return [
     'unknownStatusCode'     => 'Okänd HTTP statuskod utan meddelande: {0}',
 
     // URI
-    'cannotParseURI'       => 'Kunde inte tolka URI: {0}',
-    'segmentOutOfRange'    => 'Förfrågans URI segment utanför intervall: {0}',
+    'cannotParseURI'       => 'Kunde inte tolka URI: "{0}"',
+    'segmentOutOfRange'    => 'Förfrågans URI segment utanför intervall: "{0}"',
     'invalidPort'          => 'Port måste anges mellan 0 och 65535. Angivet: {0}',
     'malformedQueryString' => 'Query-strängen får inte innehålla URI-fragment.',
 
@@ -50,7 +50,8 @@ return [
     'pageNotFound'       => 'Sidan kunde inte hittas',
     'emptyController'    => 'Ingen Controller angiven.',
     'controllerNotFound' => 'Controller eller metoden kunde inte hittas: {0}::{1}',
-    'methodNotFound'     => 'Controller-methoden kunde inte hittas: {0}',
+    'methodNotFound'     => 'Controller-metoden kunde inte hittas: "{0}"',
+    'localeNotSupported' => 'Denna Locale stödjs inte: {0}',
 
     // CSRF
     'disallowedAction' => 'Den önskade funktionen är inte tillåten.',
@@ -58,7 +59,7 @@ return [
     // Uploaded file moving
     'alreadyMoved' => 'Den uppladdade filen har redan flyttats.',
     'invalidFile'  => 'Originalfilen är inte en giltig fil.',
-    'moveFailed'   => 'Kunde inte flytta filen {0} till {1} ({2})',
+    'moveFailed'   => 'Kunde inte flytta filen "{0}" till "{1}". Anledning: {2}',
 
     'uploadErrOk'        => 'Filen laddades upp korrekt.',
     'uploadErrIniSize'   => 'Filen "%s" överstiger inställningen upload_max_filesize.',

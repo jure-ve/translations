@@ -57,7 +57,9 @@ return [
     'valid_emails'          => 'Pole {field} musi zawierać wszystkie prawidłowe adresy e-mail.',
     'valid_ip'              => 'Pole {field} musi zawierać poprawny adres IP.',
     'valid_url'             => 'Pole {field} musi zawierać prawidłowy adres URL.',
+    'valid_url_strict'      => 'Pole {field} musi zawierać prawidłowy adres URL.',
     'valid_date'            => 'Pole {field} musi zawierać poprawną datę.',
+    'valid_json'            => 'Pole {field} musi zawierać poprawny json.',
 
     // Credit Cards
     'valid_cc_num' => '{field} nie wydaje się być prawidłowym numerem karty kredytowej.',

@@ -5,6 +5,147 @@ All notable changes to this library will be documented in this file:
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/)
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [v4.3.1](https://github.com/codeigniter4/translations/compare/v4.3.0...v4.3.1) - 2023-03-19
+
+### Added
+
+- sr (Serbian)
+
+### Changed
+
+- bs (Bosnian)
+- fa (Farsi)
+- ja (Japanese)
+- ko (Korean)
+- ml (Malayalam)
+- ru (Russian)
+
+### Fixed
+
+- Replace deprecated `CLI::isWindows()`
+
+## [v4.3.0](https://github.com/codeigniter4/translations/compare/v4.2.11...v4.3.0) - 2023-01-18
+
+### Added
+
+- bn (Bengali)
+- Auto-review updating of license year
+
+### Changed
+
+- de (German)
+- id (Indonesian)
+- ja (Japanese)
+- ko (Korean)
+- sv-SE (Swedish-Sweden)
+
+### Fixed
+
+- Set `GITHUB_TOKEN` env in shivammathur/setup-php
+
+## [v4.2.11](https://github.com/codeigniter4/translations/compare/v4.2.7...v4.2.11) - 2022-12-31
+
+### Added
+
+- Add script to generate the translation status webpage and deployed via GitHub Pages
+  The status page is live at <https://codeigniter4.github.io/translations/>
+
+### Changed
+
+- fa (Farsi)
+- ja (Japanese)
+- pl (Polish)
+- pt-BR (Brazilian)
+- sv-SE (Swedish-Sweden)
+
+### Fixed
+
+- Update .gitattributes
+- Fix levels in changelog
+
+## [v4.2.7](https://github.com/codeigniter4/translations/compare/v4.2.5...v4.2.7) - 2022-10-15
+
+### Added
+
+- Add script to add en lang strings as comments
+- Add .editorconfig
+
+### Changed
+
+- de (German)
+- id (Indonesian)
+- ja (Japanese)
+- ko (Korean)
+- lt (Lithuanian)
+
+### Fixed
+
+- Update action workflows
+
+## [v4.2.5](https://github.com/codeigniter4/translations/compare/v4.2.2...v4.2.5) - 2022-08-29
+
+### Changed
+
+- fa (Farsi)
+- ko (Korean)
+
+### Fixed
+
+- Removed deprecated `Nexus/space_after_comment_start` fixer
+
+## [v4.2.2](https://github.com/codeigniter4/translations/compare/v4.2.1...v4.2.2) - 2022-08-07
+
+### Added
+
+- bg (Bulgarian)
+
+### Changed
+
+- ja (Japanese)
+- ko (Korean)
+- id (Indonesian)
+- sv-SE (Swedish-Sweden)
+
+## [v4.2.1](https://github.com/codeigniter4/translations/compare/v4.2.0...v4.2.1) - 2022-06-17
+
+### Added
+
+- ro (Romanian)
+
+### Changed
+
+- de (German)
+- ko (Korean)
+
+## [v4.2.0](https://github.com/codeigniter4/translations/compare/v4.1.6...v4.2.0) - 2022-06-04
+
+### Added
+
+- bs (Bosnian)
+- hu (Hungarian)
+- Added automatic review tests
+
+### Changed
+
+- Minimum PHP version bump to PHP 7.4
+
+### Changed locales (except for `Validation.valid_url_strict` string)
+
+- de (German)
+- id (Indonesian)
+- ja (Japanese)
+- ko (Korean)
+- sv-SE (Swedish-Sweden)
+- pt-BR (Brazilian)
+
+### Changed locales for `Validation.valid_url_strict` string
+
+- all locales
+
+### Fixed
+
+- Fixed `Simple Chinese` to `Simplified Chinese`
+
 ## [v4.1.6](https://github.com/codeigniter4/translations/compare/v4.1.5...v4.1.6) - 2022-01-05
 
 ### Added

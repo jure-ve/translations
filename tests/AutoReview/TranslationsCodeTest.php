@@ -20,25 +20,11 @@ use Translations\Tests\AbstractTranslationTestCase;
  * @internal
  *
  * @coversNothing
+ *
  * @group auto-review
  */
 final class TranslationsCodeTest extends TestCase
 {
-    public function testLicenseCopyrightYearIsUpdated(): void
-    {
-        $license = $this->getContentsOrFail(__DIR__ . '/../../LICENSE');
-
-        $updatedCopyrightYear = sprintf(
-            '/Copyright \(c\) 2019\-%d CodeIgniter Foundation/',
-            date('Y')
-        );
-
-        $this->assertSame(1, preg_match($updatedCopyrightYear, $license), sprintf(
-            'Expected copyright year to be "Copyright (c) 2019-%d CodeIgniter Foundation" but is not found in LICENSE.',
-            date('Y')
-        ));
-    }
-
     public function testLocalesArrayAreArrangedByLocaleCode(): void
     {
         $locales = AbstractTranslationTestCase::$locales;

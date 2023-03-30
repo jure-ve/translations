@@ -39,6 +39,8 @@ abstract class AbstractTranslationTestCase extends TestCase
      */
     public static array $locales = [
         ArabicTranslationTest::class             => 'ar',
+        BulgarianTranslationTest::class          => 'bg',
+        BengaliTranslationTest::class            => 'bn',
         BosnianTranslationTest::class            => 'bs',
         CzechTranslationTest::class              => 'cs',
         GermanTranslationTest::class             => 'de',
@@ -58,9 +60,11 @@ abstract class AbstractTranslationTestCase extends TestCase
         PolishTranslationTest::class             => 'pl',
         PortugueseTranslationTest::class         => 'pt',
         BrazilianTranslationTest::class          => 'pt-BR',
+        RomanianTranslationTest::class           => 'ro',
         RussianTranslationTest::class            => 'ru',
         SinhalaTranslationTest::class            => 'si',
         SlovakTranslationTest::class             => 'sk',
+        SerbianTranslationTest::class            => 'sr',
         SwedishTranslationTest::class            => 'sv-SE',
         ThaiTranslationTest::class               => 'th',
         TurkishTranslationTest::class            => 'tr',
@@ -82,9 +86,9 @@ abstract class AbstractTranslationTestCase extends TestCase
      */
     protected array $excludedLocaleKeyTranslations = [];
 
-    //-------------------------------------------------------------------------
+    // -------------------------------------------------------------------------
     // TESTS
-    //-------------------------------------------------------------------------
+    // -------------------------------------------------------------------------
 
     /**
      * This tests that all language files configured in the main CI4 repository
@@ -325,9 +329,9 @@ abstract class AbstractTranslationTestCase extends TestCase
         ));
     }
 
-    //-------------------------------------------------------------------------
+    // -------------------------------------------------------------------------
     // UTILITIES
-    //-------------------------------------------------------------------------
+    // -------------------------------------------------------------------------
 
     /**
      * Get all the ISO 639-1 and 639-2 locale codes.
@@ -378,13 +382,15 @@ abstract class AbstractTranslationTestCase extends TestCase
      */
     final public function loadFile(string $file, ?string $locale = null): array
     {
+        helper('array');
+
         $folder = $locale
             ? getcwd() . "/Language/{$locale}/"
             : getcwd() . self::MAIN_LANGUAGE_REPO;
 
-        $file = $folder . $file;
+        $contents = require $folder . $file;
 
-        return require $file;
+        return array_flatten_with_dots($contents);
     }
 
     /**
