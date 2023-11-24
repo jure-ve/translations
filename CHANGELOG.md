@@ -5,6 +5,71 @@ All notable changes to this library will be documented in this file:
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/)
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [v4.4.3](https://github.com/codeigniter4/translations/compare/v4.4.1...v4.4.3) - 2023-10-27
+
+### Fixed
+
+- fix generate-page (#414)
+
+### Changed
+
+- de (German)
+- id (Indonesian)
+- ja (Japanese)
+- ko (Korean)
+- lt (Latvian)
+- pl (Polish)
+
+## [v4.4.1](https://github.com/codeigniter4/translations/compare/v4.3.8...v4.4.1) - 2023-09-14
+
+### Added
+
+- feat: Support for colored progress bars accdg to percent (#391)
+- chore: add dependabot.yml (#401)
+- chore(deps): bump actions/checkout from 3 to 4 (#403)
+- chore(deps): bump peter-evans/create-pull-request from 4 to 5 (#404)
+
+### Fixed
+
+- \[de\] Convert windows-1252 files to UTF-8 (#399)
+- fix: add env.GITHUB_TOKEN to setup-php (#402)
+
+### Changed
+
+- de (German)
+- fa (Farsi)
+- ja (Japanese)
+- ru (Russian)
+
+## [v4.3.8](https://github.com/codeigniter4/translations/compare/v4.3.6...v4.3.8) - 2023-08-25
+
+### Added
+
+- Add permissions to worklows
+
+### Changed
+
+- it (Italian)
+- ru (Russian)
+
+### Fixed
+
+- Fix generate-page workflow (#390)
+- Fix cs styles (#389)
+- Fix compatibility with PHP 7.4
+
+## [v4.3.6](https://github.com/codeigniter4/translations/compare/v4.3.1...v4.3.6) - 2023-06-23
+
+### Changed
+
+- sv-SE (Swedish-Sweden)
+
+### Fixed
+
+- Fix name of build workflow
+- Fix intermittent failures on CI (#382)
+- docs: fix sr version where the locale was released (#383)
+
 ## [v4.3.1](https://github.com/codeigniter4/translations/compare/v4.3.0...v4.3.1) - 2023-03-19
 
 ### Added

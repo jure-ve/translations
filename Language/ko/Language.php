@@ -9,7 +9,7 @@
  * the LICENSE file that was distributed with this source code.
  */
 
-// Testing language settings
+// "Language" language settings
 return [
-    'invalidMockClass' => '{0} ist keine gültige Mock-Klasse',
+    'invalidMessageFormat' => '정확하지 않은 메시지 형식: "{0}", 인수: "{1}"', // 'Invalid message format: "{0}", args: "{1}"',
 ];

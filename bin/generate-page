@@ -33,6 +33,25 @@ if (! is_dir($enDir)) {
     exit(1);
 }
 
+function flatterArray(array $inputArray): array
+{
+    $iterator = new RecursiveIteratorIterator(new RecursiveArrayIterator($inputArray), RecursiveIteratorIterator::SELF_FIRST);
+    $newArray = [];
+    $path     = [];
+
+    foreach ($iterator as $key => $value) {
+        $path[$iterator->getDepth()] = $key;
+
+        if (! is_array($value)) {
+            $newArray[
+                implode('.', array_slice($path, 0, $iterator->getDepth() + 1))
+            ] = $value;
+        }
+    }
+
+    return $newArray;
+}
+
 // get default "en" language for reference
 $enFiles = get_filenames(
     $enDir,
@@ -44,18 +63,11 @@ $enFiles = get_filenames(
 $enItems = [];
 
 foreach ($enFiles as $enFile) {
-    $enFileLines = file($enFile);
+    $enFileLines = include $enFile;
+    $enFileLines = flatterArray($enFileLines);
     $enName      = basename($enFile);
-    $pattern     = '/(.*)\'([a-zA-Z0-9_]+?)\'(\s*=>\s*)([\'"].+[\'"]),/u';
 
-    $enItems[$enName] = ['lines' => [], 'count' => 0];
-
-    foreach ($enFileLines as $line) {
-        if (preg_match($pattern, $line, $matches)) {
-            $enItems[$enName]['lines'][$matches[2]] = $matches[4];
-            $enItems[$enName]['count']++;
-        }
-    }
+    $enItems[$enName] = ['lines' => $enFileLines, 'count' => count($enFileLines)];
 }
 
 // create build directory
@@ -67,8 +79,21 @@ if (! is_dir($buildDir) && ! mkdir($buildDir)) {
     exit(1);
 }
 
-// gather all others languages
+// gather all other languages
 $items = [];
+
+$backgroundChoice = static function (float $percent): string {
+    switch (true) {
+        case $percent <= 33.33:
+            return 'bg-danger';
+
+        case $percent > 33.33 && $percent <= 66.67:
+            return 'bg-warning';
+
+        default:
+            return 'bg-success';
+    }
+};
 
 foreach ($locales as $localeKey => $locale) {
     CLI::write('Generating details for: ' . CLI::color($locale, 'green'));
@@ -90,7 +115,7 @@ foreach ($locales as $localeKey => $locale) {
 
     $items[$locale] = [
         'language' => preg_replace_callback(
-            '/^Translations\\\\Tests\\\\(\S+)TranslationTest$/',
+            '/\ATranslations\\\\Tests\\\\(\S+)TranslationTest\z/',
             static fn (array $matches): string => preg_replace(
                 '/(?<!^)((?=[\p{Lu}][^\p{Lu}])|(?<![\p{Lu}])(?=[\p{Lu}]))/u',
                 ' ',
@@ -98,32 +123,50 @@ foreach ($locales as $localeKey => $locale) {
             ),
             $localeKey
         ),
-        'locale'  => $locale,
-        'percent' => 0,
-        'files'   => [],
+        'locale'     => $locale,
+        'percent'    => 0,
+        'files'      => [],
+        'background' => '',
     ];
 
     foreach ($files as $file) {
-        $fileLines = file($file);
+        $fileLines = include $file;
+        $fileLines = flatterArray($fileLines);
         $name      = basename($file);
-        $pattern   = '/(.*)\'([a-zA-Z0-9_]+?)\'(\s*=>\s*)([\'"].+[\'"]),/u';
 
         $validLines = array_keys($enItems[$name]['lines']);
 
-        $items[$locale]['files'][$name] = ['lines' => [], 'count' => 0, 'percent' => 0, 'missing' => []];
+        $items[$locale]['files'][$name] = ['lines' => [], 'count' => 0, 'percent' => 0, 'missing' => [], 'background' => ''];
 
-        foreach ($fileLines as $line) {
-            if (preg_match($pattern, $line, $matches) && in_array($matches[2], $validLines, true)) {
-                $items[$locale]['files'][$name]['lines'][$matches[2]] = $matches[4];
+        foreach ($fileLines as $key => $val) {
+            if (in_array($key, $validLines, true) && $val !== '') {
+                $items[$locale]['files'][$name]['lines'][$key] = $val;
                 $items[$locale]['files'][$name]['count']++;
             }
         }
 
-        $items[$locale]['files'][$name]['missing'] = array_values(array_diff(array_keys($enItems[$name]['lines']), array_keys($items[$locale]['files'][$name]['lines'])));
-        $items[$locale]['files'][$name]['percent'] = round($items[$locale]['files'][$name]['count'] * 100 / $enItems[$name]['count'], 1);
+        $items[$locale]['files'][$name]['missing']    = array_values(array_diff(array_keys($enItems[$name]['lines']), array_keys($items[$locale]['files'][$name]['lines'])));
+        $items[$locale]['files'][$name]['percent']    = round($items[$locale]['files'][$name]['count'] * 100 / $enItems[$name]['count'], 1);
+        $items[$locale]['files'][$name]['background'] = $backgroundChoice($items[$locale]['files'][$name]['percent']);
     }
 
-    $items[$locale]['percent'] = round(array_sum(array_column($items[$locale]['files'], 'percent')) / count($items[$locale]['files']), 1);
+    // detect missing files
+    if ($missingFiles = array_diff(array_keys($enItems), array_keys($items[$locale]['files']))) {
+        foreach ($missingFiles as $missingName) {
+            $items[$locale]['files'][$missingName] = [
+                'lines'      => [],
+                'count'      => 0,
+                'missing'    => array_keys($enItems[$missingName]['lines']),
+                'percent'    => 'Missing file',
+                'background' => $backgroundChoice(0),
+            ];
+        }
+        // sort by file names
+        ksort($items[$locale]['files']);
+    }
+
+    $items[$locale]['percent']    = round(array_sum(array_column($items[$locale]['files'], 'percent')) / count($items[$locale]['files']), 1);
+    $items[$locale]['background'] = $backgroundChoice($items[$locale]['percent']);
 
     // save detailed info about language
     $fileName    = sprintf('%s/../page/build/%s.html', __DIR__, $locale);
