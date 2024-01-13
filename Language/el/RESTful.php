@@ -9,8 +9,7 @@
  * the LICENSE file that was distributed with this source code.
  */
 
-// Log language settings
+// RESTful language settings
 return [
-    'invalidLogLevel'    => '„{0}“ yra netinkamas žurnalo įrašo lygmuo.',
-    'invalidMessageType' => 'Nurodytas žurnalo įrašo tipas „{0}“ nepalaikomas.',
+    'notImplemented' => '"{0}" η ενέργεια δεν εφαρμόστηκε.', // '"{0}" action not implemented.',
 ];

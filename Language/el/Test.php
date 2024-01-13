@@ -9,8 +9,7 @@
  * the LICENSE file that was distributed with this source code.
  */
 
-// Log language settings
+// Testing language settings
 return [
-    'invalidLogLevel'    => '„{0}“ yra netinkamas žurnalo įrašo lygmuo.',
-    'invalidMessageType' => 'Nurodytas žurnalo įrašo tipas „{0}“ nepalaikomas.',
+    'invalidMockClass' => '"{0}" δεν είναι έγκυρη κλάση Mock', // '"{0}" is not a valid Mock class',
 ];

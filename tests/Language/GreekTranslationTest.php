@@ -9,8 +9,11 @@
  * the LICENSE file that was distributed with this source code.
  */
 
-// Log language settings
-return [
-    'invalidLogLevel'    => '„{0}“ yra netinkamas žurnalo įrašo lygmuo.',
-    'invalidMessageType' => 'Nurodytas žurnalo įrašo tipas „{0}“ nepalaikomas.',
-];
+namespace Translations\Tests;
+
+/**
+ * @internal
+ */
+final class GreekTranslationTest extends AbstractTranslationTestCase
+{
+}
