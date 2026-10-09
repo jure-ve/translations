@@ -1,33 +1,32 @@
-name: automatic review
+name: upstream
 
 on:
   schedule:
-    - cron: '0 1 * * *'
+    - cron: '0 3 * * *'
   push:
     branches:
       - develop
     paths:
-      - Language/**
-      - tests/**
-      - .github/workflows/auto-review.yml
+      - tests/Upstream/**
+      - .github/workflows/upstream.yml
   pull_request:
     branches:
       - develop
     paths:
-      - Language/**
-      - tests/**
-      - .github/workflows/auto-review.yml
+      - tests/Upstream/**
+      - .github/workflows/upstream.yml
+  workflow_dispatch:
 
 permissions:
   contents: read
 
 concurrency:
-  group: auto-review-${{ github.ref }}
+  group: upstream-${{ github.ref }}
   cancel-in-progress: true
 
 jobs:
-  code:
-    name: Automatic Review on Code [PHP ${{ matrix.php-version }}]
+  baseline:
+    name: Upstream Language Baseline [PHP ${{ matrix.php-version }}]
     runs-on: ubuntu-24.04
     if: github.repository == 'codeigniter4/translations'
     timeout-minutes: 15
@@ -37,10 +36,6 @@ jobs:
       # Run only on the highest supported PHP version to reduce API load
       matrix:
         php-version: ['8.5']
-
-    permissions:
-      pull-requests: read
-      contents: read
 
     steps:
       - name: Checkout code
@@ -73,5 +68,5 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
-      - name: Run Automatic Review Test Suite
-        run: vendor/bin/phpunit --color=always --group=auto-review
+      - name: Run Upstream Test Suite
+        run: vendor/bin/phpunit --color=always --group=upstream
